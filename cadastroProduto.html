@@ -5,10 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Cadastro de Produto</title>
 </head>
-<body>
+<body style="background-color:#C7ECFD">
 	<style>
+	li a:hover {
+		color: #A1A8FF;
+	}
+	g{
+		margin-left: 750px;
+	}
 	#clear{
-		margin-top: 400px;
+		margin-top: 350px;
 		margin-left: 1000px;
 		height: 50px;
 		width: 200px;
@@ -40,25 +46,23 @@
 	form{
 		margin-left: 400px;
 	}
-	a:hover{
-		text-decoration: underline;
+	t{
+		font-family: sans-serif;
 	}
 	a{
 		font-family: sans-serif;
 		text-decoration: none;
+		color:#689FFF;
 	}
 	nav{
 		position: fixed;
 		left: 0px;
-		width: 200px;
-		font-size: 24px;
+		font-size: 26px;
 	}
 	</style>
-	<nav class="menu">
+	<nav class="menu" background-color="white">
 		<ul>
-			<li>
-				<a>Pedido</a>
-			</li>
+			<t>Pedido</t>
 			<li>
 				<a href="incpedido.html">Incluir Pedido</a>
 			</li>
@@ -66,9 +70,7 @@
 				<a href="conspedido.html">Consultar Pedido</a>
 			</li>
 			<br>
-			<li>
-				<a>Cliente</a>
-			</li>
+			<t>Cliente</t>
 			<li>
 				<a href="inccliente.html">Incluir Cliente</a>
 			</li>
@@ -76,9 +78,7 @@
 				<a href="altcliente.html">Alterar Cliente</a>
 			</li>
 			<br>
-			<li>
-				<a>Produto</a>
-			</li>
+			<t>Produto</t>
 			<li>
 				<a href="incproduto.html">Incluir Produto</a>
 			</li>
@@ -86,9 +86,7 @@
 				<a href="consproduto.html">Consultar Produto</a>
 			</li>
 			<br>
-			<li>
-				<a>Estoque</a>
-			</li>
+			<t>Estoque</t>
 			<li>
 				<a href="incremoestoque.html">Incluir/Remover Estoque</a>
 			</li>
@@ -96,9 +94,7 @@
 				<a href="consestoque.html">Consultar Estoque</a>
 			</li>
 			<br>
-			<li>
-				<a>Relatórios</a>
-			</li>
+			<t>Relatórios</t>
 			<li>
 				<a href="vendas.html">Vendas</a>
 			</li>
@@ -106,9 +102,7 @@
 				<a href="estoque.html">Estoque</a>
 			</li>
 			<br>
-			<li>
-				<a>Suporte</a>
-			</li>
+			<t>Suporte</t>
 			<li>
 				<a href="abrirconsultar.html">Abrir/Consultar</a>
 			</li>
@@ -119,19 +113,25 @@
 				<a href="protocolor.html">Protocolo Respondido</a>
 			</li>
 			<br>
-			<li>
-				<a>Marketing</a>
-			</li>
+			<t>Marketing</t>
 			<br>
-			<li>
-				<a>Funcionários</a>
-			</li>
+			<br>
+			<br>
+			<t>Funcionários</t>
 		</ul>
 	</nav>
 	<form autocomplete="off">
 		<tr>
 			<td>
 				<form class="form" action="index.html" method="post">
+					<br>
+					<br>
+					<img src="logo.png" width="450" height="100"></img>
+					<g>Seja bem-vindo, USUÁRIO</g>&nbsp&nbsp&nbsp&nbsp&nbsp
+					<img src="avatar.png" class="g" width="50" height="50"></img>
+
+				</td>
+				<td>
 					<br>
 					<br>
 					<br>
@@ -165,7 +165,7 @@
 				<tr>
 					<td>
 						<f>Categoria:</f>
-						<select name="Categoria">
+						<select name="Categoria" class="categoria">
 							<option value="first" selected class="form">Categoria 1</option>
 							<option value="second" class="form">Categoria 2</option>
 							<option value="third" class="form">Categoria 3</option>
@@ -176,13 +176,14 @@
 				<tr>
 					<td>
 						<f>Subcategoria:</f>
-						<select name="Subcategoria">
+						<select name="Subcategoria" class="subcategoria">
 							<option value="first" selected class="form">Subcategoria 1</option>
 							<option value="second" class="form">Subcategoria 2</option>
 							<option value="third" class="form">Subcategoria 3</option>
 						</select>
 					</td>
 				</tr>
+				<br>
 				<br>
 				<br>
 				<tr>
