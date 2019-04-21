@@ -7,6 +7,10 @@
 </head>
 <body style="background-color:#C7ECFD">
 	<style>
+	#dropdown{
+		width:150px;
+		height: 30px;
+	}
 	li a:hover {
 		color: #A1A8FF;
 	}
@@ -14,7 +18,7 @@
 		margin-left: 750px;
 	}
 	#clear{
-		margin-top: 350px;
+		margin-top: 200px;
 		margin-left: 1000px;
 		height: 50px;
 		width: 200px;
@@ -165,7 +169,7 @@
 				<tr>
 					<td>
 						<f>Categoria:</f>
-						<select name="Categoria" class="categoria">
+						<select name="Categoria" id="dropdown">
 							<option value="first" selected class="form">Categoria 1</option>
 							<option value="second" class="form">Categoria 2</option>
 							<option value="third" class="form">Categoria 3</option>
@@ -176,7 +180,7 @@
 				<tr>
 					<td>
 						<f>Subcategoria:</f>
-						<select name="Subcategoria" class="subcategoria">
+						<select name="Subcategoria" id="dropdown">
 							<option value="first" selected class="form">Subcategoria 1</option>
 							<option value="second" class="form">Subcategoria 2</option>
 							<option value="third" class="form">Subcategoria 3</option>
@@ -189,7 +193,7 @@
 				<tr>
 					<td>
 						<f>Disponível:</f>
-						<select name="Disponível">
+						<select name="Disponível" id="dropdown">
 							<option value="first" selected class="form">Habilitado</option>
 							<option value="second" class="form">Desabilitado</option>
 						</select>
