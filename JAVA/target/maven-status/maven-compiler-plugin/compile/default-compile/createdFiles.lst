@@ -1,0 +1,5 @@
+InterDao\ProdutoDaoInte.class
+Conexao\Database.class
+Model\Produto.class
+Controller\InserirProdutoController.class
+DAO\ProdutoDAO.class
