@@ -10,16 +10,6 @@ import Conexao.Database;
 import InterDao.ProdutoDaoInte;
 import java.util.List;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author johnathan.mbmata
- */
 public class ProdutoDAO implements ProdutoDaoInte {
 
     private static ProdutoDAO produtoDao = null;
@@ -30,8 +20,8 @@ public class ProdutoDAO implements ProdutoDaoInte {
     public boolean Inserir(Produto produto) {
         boolean retorno = false;
 
-        String sql = "INSERT INTO PRODUTOS (NOME, QUANTIDADE, VALOR, DESCRICAO, HABILITADO)"
-                + "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO PRODUTO (NOME, QTDE, VALOR, DESC, CATEGORIA, HABILITADO)"
+                + "VALUES(?,?,?,?,?,?)";
 
         try {
             PreparedStatement comando = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -39,7 +29,8 @@ public class ProdutoDAO implements ProdutoDaoInte {
             comando.setInt(2, produto.getProdutoQuantidade());
             comando.setFloat(3, produto.getProdutoValor());
             comando.setString(4, produto.getProdutoDescricao());
-            comando.setBoolean(5, produto.isProdutohabilitado());
+            comando.setString(5, produto.getProdutoCategoria());
+            comando.setBoolean(6, produto.isProdutoHabilitado());
 
             if (comando.executeUpdate() > 0) {
                 ResultSet rs = comando.getGeneratedKeys();
@@ -57,7 +48,7 @@ public class ProdutoDAO implements ProdutoDaoInte {
 
     @Override
     public void Atualizar(Produto produto) {
-        String sql = "UPDATE PRODUTOS SET NOME=?, QUANTIDADE=?, VALOR=?, DESCRICAO=?, HABILITADO=? "
+        String sql = "UPDATE PRODUTOS SET NOME=?, QTDE=?, VALOR=?, DESC=?, CATEGORIA=?, HABILITADO=? "
                 + "WHERE IDPRODUTO=?";
 
         try {
@@ -66,7 +57,8 @@ public class ProdutoDAO implements ProdutoDaoInte {
             conexao.setInt(2, produto.getProdutoQuantidade());
             conexao.setFloat(3, produto.getProdutoValor());
             conexao.setString(4, produto.getProdutoDescricao());
-            conexao.setBoolean(5, produto.isProdutohabilitado());
+            conexao.setString(5, produto.getProdutoCategoria());
+            conexao.setBoolean(6, produto.isProdutoHabilitado());
 
             conexao.executeUpdate();
 
@@ -98,7 +90,6 @@ public class ProdutoDAO implements ProdutoDaoInte {
             PreparedStatement conexao = connection.prepareStatement(sql);
             conexao.setString(1, nome);
 
-            // Getting Customer Detail
             ResultSet resultSet = conexao.executeQuery();
             if (resultSet.next()) {
                 Produto produto = new Produto();
@@ -107,7 +98,8 @@ public class ProdutoDAO implements ProdutoDaoInte {
                 produto.setProdutoQuantidade(resultSet.getInt(3));
                 produto.setProdutoValor(resultSet.getFloat(4));
                 produto.setProdutoDescricao(resultSet.getString(5));
-                produto.setProdutohabilitado(resultSet.getBoolean(6));
+                produto.setProdutoCategoria(resultSet.getString(6));
+                produto.setProdutoHabilitado(resultSet.getBoolean(7));
 
                 return produto;
             }
@@ -126,7 +118,6 @@ public class ProdutoDAO implements ProdutoDaoInte {
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
 
-            // Getting Customer's Detail
             ResultSet resultSet = pstmt.executeQuery();
             while (resultSet.next()) {
                 if (produtos == null) {
@@ -139,7 +130,8 @@ public class ProdutoDAO implements ProdutoDaoInte {
                 produto.setProdutoQuantidade(resultSet.getInt(3));
                 produto.setProdutoValor(resultSet.getFloat(4));
                 produto.setProdutoDescricao(resultSet.getString(5));
-                produto.setProdutohabilitado(resultSet.getBoolean(6));
+                produto.setProdutoCategoria(resultSet.getString(6));
+                produto.setProdutoHabilitado(resultSet.getBoolean(7));
 
                 produtos.add(produto);
             }

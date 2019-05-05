@@ -11,35 +11,32 @@ import java.io.IOException;
 import DAO.ProdutoDAO;
 import Model.Produto;
 
-@WebServlet(name = "inserirprodutocontroller", urlPatterns = {"/inserirprodutocontroller"})
+@WebServlet(name = "consultarprodutocontroller", urlPatterns = {"/consultarprodutocontroller"})
 
-public class InserirProdutoController extends HttpServlet {
+public class ConsultarProdutoController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     private ProdutoDaoInte dao = (ProdutoDaoInte) ProdutoDAO.getInstance();
 
-    public InserirProdutoController() {
+    public ConsultarProdutoController() {
         // Do Nothing
     }
 
-    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/incluirProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/consultarProduto.jsp").forward(request, response);
     }
 
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         int id = Integer.parseInt(request.getParameter("IDPRODUTO"));
         String nome = request.getParameter("NOME");
-        int quantidade = Integer.parseInt(request.getParameter("QTDE"));
+        int quantidade = Integer.parseInt(request.getParameter("QUANTIDADE"));
         float valor = Float.parseFloat(request.getParameter("VALOR"));
-        String descricao = request.getParameter("DESC");
-        String categoria = request.getParameter("CATEGORIA");
-        boolean habilitado = Boolean.parseBoolean(request.getParameter("HABILITADO"));
+        String descricao = request.getParameter("DESCRICAO");
+        boolean habilitado = Boolean.parseBoolean(request.getParameter("HABILITDAO"));
 
         Produto produto = new Produto(nome, quantidade, valor, descricao, habilitado);
 

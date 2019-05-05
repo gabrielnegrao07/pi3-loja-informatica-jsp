@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
-/**
- *
- * @author IDCOM
- */
 public class Produto {
 
     private int idProduto;
@@ -16,14 +7,19 @@ public class Produto {
     private int produtoQuantidade;
     private float produtoValor;
     private String produtoDescricao;
-    private boolean Produtohabilitado;
+    private String produtoCategoria;
+    private boolean produtoHabilitado;
+
+    public Produto() {
+
+    }
 
     public Produto(String nome, int quantidade, float valor, String descricao, boolean habilitado) {
         this.produtoNome = nome;
         this.produtoQuantidade = quantidade;
         this.produtoValor = valor;
         this.produtoDescricao = descricao;
-        this.Produtohabilitado = habilitado;
+        this.produtoHabilitado = habilitado;
     }
 
     public int getIdProduto() {
@@ -66,15 +62,19 @@ public class Produto {
         this.produtoDescricao = produtoDescricao;
     }
 
-    public boolean isProdutohabilitado() {
-        return Produtohabilitado;
+    public String getProdutoCategoria() {
+        return produtoCategoria;
     }
 
-    public void setProdutohabilitado(boolean Produtohabilitado) {
-        this.Produtohabilitado = Produtohabilitado;
+    public void setProdutoCategoria(String produtoCategoria) {
+        this.produtoCategoria = produtoCategoria;
     }
 
-    public Produto() {
+    public boolean isProdutoHabilitado() {
+        return produtoHabilitado;
+    }
 
+    public void setProdutoHabilitado(boolean produtoHabilitado) {
+        this.produtoHabilitado = produtoHabilitado;
     }
 }

@@ -127,7 +127,7 @@
                 <t>Funcionários</t>
             </ul>
         </nav>
-        <form autocomplete="off" action="ApresentaProduto.jsp" method="POST">
+        <form autocomplete="off" action="inserirprodutocontroller" method="POST">
             <tr>
                 <td>
                     <form class="form" action="index.html" method="post">
@@ -178,16 +178,6 @@
     <option value="third" class="form">Categoria 3</option>
 
 </select>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-</td>
-</tr>
-<tr>
-    <td>
-<f>Subcategoria:</f>
-<select name="Subcategoria" id="dropdown">
-    <option value="first" selected class="form">Subcategoria 1</option>
-    <option value="second" class="form">Subcategoria 2</option>
-    <option value="third" class="form">Subcategoria 3</option>
-</select>
 </td>
 </tr>
 <br>
