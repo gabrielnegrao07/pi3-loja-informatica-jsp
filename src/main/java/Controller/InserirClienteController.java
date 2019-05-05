@@ -1,6 +1,5 @@
 package Controller;
 
-import InterDao.ProdutoDaoInte;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import DAO.ProdutoDAO;
-import Model.Produto;
+import DAO.ClienteDAO;
+import InterDao.ClienteDaoInte;
+import Model.Cliente;
+import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "inserirclientecontroller", urlPatterns = {"/inserirclientecontroller"})
 
@@ -17,7 +18,7 @@ public class InserirClienteController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private ProdutoDaoInte dao = (ProdutoDaoInte) ProdutoDAO.getInstance();
+    private ClienteDaoInte dao = (ClienteDaoInte) ClienteDAO.getInstance();
 
     public InserirClienteController() {
         // Do Nothing
@@ -25,30 +26,31 @@ public class InserirClienteController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/incluirCliente.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/consultarCliente.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("IDPRODUTO"));
+        int id = Integer.parseInt(request.getParameter("IDCLIENTE"));
         String nome = request.getParameter("NOME");
-        int quantidade = Integer.parseInt(request.getParameter("QUANTIDADE"));
-        float valor = Float.parseFloat(request.getParameter("VALOR"));
-        String descricao = request.getParameter("DESCRICAO");
-        boolean habilitado = Boolean.parseBoolean(request.getParameter("HABILITDAO"));
+        int cpf = Integer.parseInt(request.getParameter("CPF"));
+        int telefone = Integer.parseInt(request.getParameter("TELEFONE"));
+        String email = request.getParameter("EMAIL");
 
-        Produto produto = new Produto(nome, quantidade, valor, descricao, habilitado);
+        Cliente cliente = new Cliente(nome, cpf, telefone, email);
 
         if (id == 0) {
-            dao.Inserir(produto);
+            dao.Inserir(cliente);
         } else {
-            int idP = id;
-            produto.setIdProduto(id);
-            dao.Atualizar(produto);
+            int idC = id;
+            cliente.setIdCliente(id);
+            dao.Atualizar(cliente);
         }
 
-        response.sendRedirect(request.getContextPath() + "/");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/consultarCliente.jsp");
+        dispatcher.forward(request, response);
     }
 
 }

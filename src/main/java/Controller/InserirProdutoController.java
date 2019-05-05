@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import DAO.ProdutoDAO;
 import Model.Produto;
+import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "inserirprodutocontroller", urlPatterns = {"/inserirprodutocontroller"})
 
@@ -50,8 +51,9 @@ public class InserirProdutoController extends HttpServlet {
             produto.setIdProduto(id);
             dao.Atualizar(produto);
         }
-
-        response.sendRedirect(request.getContextPath() + "/");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/consultarProduto.jsp");
+        dispatcher.forward(request, response);
     }
 
 }

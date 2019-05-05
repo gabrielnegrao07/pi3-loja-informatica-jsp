@@ -1,6 +1,6 @@
 package Controller;
 
-import InterDao.ProdutoDaoInte;
+import InterDao.FuncionarioDaoInte;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import DAO.ProdutoDAO;
-import Model.Produto;
+import DAO.FuncionarioDAO;
+import Model.Funcionario;
+import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "inserirfuncionariocontroller", urlPatterns = {"/inserirfuncionariocontroller"})
 
@@ -17,7 +18,7 @@ public class InserirFuncionarioController extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    private ProdutoDaoInte dao = (ProdutoDaoInte) ProdutoDAO.getInstance();
+    private FuncionarioDaoInte dao = (FuncionarioDaoInte) FuncionarioDAO.getInstance();
 
     public InserirFuncionarioController() {
         // Do Nothing
@@ -31,24 +32,24 @@ public class InserirFuncionarioController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("IDPRODUTO"));
+        int id = Integer.parseInt(request.getParameter("IDFUNCIONARIO"));
         String nome = request.getParameter("NOME");
-        int quantidade = Integer.parseInt(request.getParameter("QUANTIDADE"));
-        float valor = Float.parseFloat(request.getParameter("VALOR"));
-        String descricao = request.getParameter("DESCRICAO");
-        boolean habilitado = Boolean.parseBoolean(request.getParameter("HABILITDAO"));
+        String acesso = request.getParameter("ACESSO");
+        String filial = request.getParameter("FILIAL");
 
-        Produto produto = new Produto(nome, quantidade, valor, descricao, habilitado);
+        Funcionario funcionario = new Funcionario(nome, acesso, filial);
 
         if (id == 0) {
-            dao.Inserir(produto);
+            dao.Inserir(funcionario);
         } else {
-            int idP = id;
-            produto.setIdProduto(id);
-            dao.Atualizar(produto);
+            int idF = id;
+            funcionario.setIdFuncionario(id);
+            dao.Atualizar(funcionario);
         }
 
-        response.sendRedirect(request.getContextPath() + "/");
+        RequestDispatcher dispatcher
+                = request.getRequestDispatcher("/WEB-INF/consultarFuncionario.jsp");
+        dispatcher.forward(request, response);
     }
 
 }
