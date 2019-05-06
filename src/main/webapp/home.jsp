@@ -91,8 +91,8 @@
                 <td>${cliente.id}</td>
                 <td>${cliente.nomeCliente}</td>
                 <td>${cliente.cpfCliente}</td>
-                <td>${cliente.emailCliente}</td>
                 <td>${cliente.telefoneCliente}</td>
+                <td>${cliente.emailCliente}</td>
                  
                 <td>
                     <form action="<c:url value="/customer/update"/>" method="post">
