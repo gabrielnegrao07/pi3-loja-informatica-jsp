@@ -9,25 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.ClienteDao;
-import interDAO.ClienteDaoImpl;
-import model.Cliente;
+import DAO.ProdutoDao;
+import interDAO.ProdutoDaoImpl;
+import model.Produto;
  
 @WebServlet("/")
-public class HomeController extends HttpServlet {
+public class ProdutoHomeController extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    private ClienteDao clienteDao = ClienteDaoImpl.getInstance();
+    private ProdutoDao produtoDao = ProdutoDaoImpl.getInstance();
      
-    public HomeController() {
+    public ProdutoHomeController() {
     }
  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
  
-        List<Cliente> clientes = clienteDao.showAllCliente();
+        List<Produto> produtos = produtoDao.showAllProduto();
  
-        request.setAttribute("clienteList", clientes);
+        request.setAttribute("produtoList", produtos);
  
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
