@@ -1,0 +1,62 @@
+header
+{
+	background-color: #05caf5;
+	height: 50px;
+	padding: 10px;
+	margin: 0px 0px 100px 0px;
+	border-radius: 25px;
+	color: white;
+}
+body
+{
+	background-color: #fffafa;
+}
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+.container
+{
+	width: 960px;
+	margin: 0 auto;
+	background-color: white;
+	border-radius: 25px 25px 0px 0px;
+	font-family: Helvetica, arial;
+
+}
+
+#logar
+{
+	min-height: 200px;
+	border: 1px solid #05caf5;
+	float: left;
+	margin: 80px 0px 0px 330px;
+	padding: 60px 20px 20px 20px;
+	border-radius: 30px;
+	border-bottom-color: red;
+	border-top-color: red;
+	text-align: center;
+}
+
+.buttomEntra
+{
+	border: 1px solid #0099bf;
+	border-radius: 10px;
+	margin: 70px 0px 0px 0px;
+	color: white;
+	background-color: #0099bf;
+}
+
+
+footer
+{
+	background-color: #05caf5;
+	height: 130px;
+	padding: 10px;
+	border-radius: 25px 25px 0px 0px;
+	margin: 750px 0px 0px 0px;
+	text-align: center;
+	color: white;
+}
