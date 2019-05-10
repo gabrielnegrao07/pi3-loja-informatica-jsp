@@ -20,26 +20,26 @@
         <div>
             <label>Nome</label>
             <div>
-                <input type="text" name="nome" maxlength="50" value="${request.getParametre(nome)}" style="width:300px" required/>
+                <input type="text" name="nome" maxlength="50" value="${request.getParameter(nome)}" style="width:300px" required/>
             </div>
         </div>
         <div>
             <label>CPF</label>
             <div>
-                <input type="text" name="cpf" maxlength="80" value="${request.getParametre(cpf)}" style="width:300px" required/>
+                <input type="text" name="cpf" maxlength="80" value="${request.getParameter(cpf)}" style="width:300px" required/>
             </div>
         </div>
         <div>
             <div>
                 <label>Telefone</label>
                 <div>
-                    <input type="text" name="telefone" maxlength="13" value="${request.getParametre(telefone)}" style="width:300px" required/>
+                    <input type="text" name="telefone" maxlength="13" value="${request.getParameter(telefone)}" style="width:300px" required/>
                 </div>
             </div>
             <div>
                 <label>Email</label>
                 <div>
-                    <input type="email" name="email" maxlength="15" value="${request.getParametre(email)}" style="width:300px" required/>
+                    <input type="email" name="email" maxlength="15" value="${request.getParameter(email)}" style="width:300px" required/>
                 </div>
             </div>
             <button type="submit">Salvar</button>

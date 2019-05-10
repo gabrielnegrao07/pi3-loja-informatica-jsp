@@ -22,20 +22,20 @@
                 <div>
                     <label>Descrição</label>
                     <div>
-                        <input type="text" name="descricao" maxlength="80"  value="${cliente.descricao}" style="width:300px" required/>
+                        <input type="text" name="descricao" maxlength="80"  value="${produto.descricao}" style="width:300px" required/>
                     </div>
                 </div>
                 <div>
                     <div>
                         <label>Valor</label>
                         <div>
-                            <input type="text" name="valor" maxlength="13" value="${cliente.valor}" style="width:300px" required/>
+                            <input type="text" name="valor" maxlength="13" value="${produto.valor}" style="width:300px" required/>
                         </div>
                     </div>
                     <div>
                         <label>Quantidade</label>
                         <div>
-                            <input type="text" name="quantidade" maxlength="15" value="${cliente.quantidade}" style="width:300px" required/>
+                            <input type="text" name="quantidade" maxlength="15" value="${produto.quantidade}" style="width:300px" required/>
                         </div>
                     </div>
                     <button type="submit">Salvar</button>
