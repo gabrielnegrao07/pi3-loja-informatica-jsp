@@ -1,0 +1,155 @@
+header
+{
+	background-color: #004d00;
+	height: 70px;
+	color: white;
+	padding: 0px;
+	margin: 0px;
+	border-bottom: 4px solid black;
+}
+
+#opcao
+{
+	height: 645px;
+	float: left;
+	padding: 0;
+	background-color: #008000;
+	margin-top: 17px;
+	box-shadow: 1px 0px 15px #003300;
+
+}
+
+#opcao li
+{
+	list-style: none;
+	background-color: white;
+	width: 250px;
+	border-bottom: 2px solid #006600; 
+
+}
+
+#opcao li a
+{
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: white;
+	background-color: #008000;
+
+
+}
+
+#opcao li a:hover
+{
+	background: #001a00;
+
+}
+
+#opcao li ul
+{
+	display: none;
+}
+
+#opcao li:hover ul
+{
+	display: block;
+}
+
+#opcao li:hover ul li
+{
+	background: #333;
+}
+
+#opcao li:hover ul li a
+{
+	color: #ecf9ec;
+}
+
+#opcao li:hover ul li a:hover
+{
+	background: #339933;
+	border-left: 4px solid 006600;
+}
+
+*
+{
+	padding: 0px;
+	margin: 0px;
+}
+
+body
+{
+	background-color: #f1f1f1;
+
+}
+
+h1
+{
+	text-align: center;
+	padding-top: 20px;
+}
+
+.formulario
+{
+	background-color: white;
+	min-height: 300px;
+	min-width: 980px;
+	margin: 80px 0px 0px 150px;
+	padding: 50px 20px 20px 20px;
+	border: 1px solid #05caf5;
+	border-radius: 30px;
+	border-bottom-color: red;
+	border-top-color: red;
+	float: left;
+}
+
+.text
+{
+	border-radius: 5px;
+	border: 1px solid;
+}
+
+.buttom
+{
+	margin: 50px 0px 0px 0px;
+	right: 115px;
+	position: solid;
+}
+
+.buttomConfirmar
+{
+	border: 1px solid #009900;
+	border-radius: 10px;
+	margin: 40px 0px 0px 0px;
+	color: white;
+	background-color: #009900;
+}
+
+.buttomLimpar
+{
+	border: 1px solid #999900;
+	border-radius: 10px;
+	margin: 40px 0px 0px 0px;
+	color: white;
+	background-color: #999900;
+}
+
+.buttomCancelar
+{
+	border: 1px solid #990000;
+	border-radius: 10px;
+	margin: 40px 0px 0px 0px;
+	color: white;
+	background-color: #990000;
+}
+
+footer
+{
+	background-color: #004d00;
+	height: 50px;
+	text-align: center;
+	color: white;
+	margin: 645px 0px 0px 0px;
+	padding: 20px 0px 0px 0px;
+	border-top: 2px solid black;
+}

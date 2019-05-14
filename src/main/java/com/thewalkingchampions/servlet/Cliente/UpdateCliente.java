@@ -22,9 +22,8 @@ public class UpdateCliente extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
 
-        Cliente cliente = ClienteController.searchOne(Integer.parseInt(id));
 
-        String nome = cliente.getNome();
+        /*String nome = cliente.getNome();
         String cpf = cliente.getCpf();
         String telefone = cliente.getTelefone();
         String email = cliente.getEmail();
@@ -39,5 +38,5 @@ public class UpdateCliente extends HttpServlet {
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("updateCliente.jsp");
         dispatcher.forward(request, response);
-    }
+    */}
 }
