@@ -26,11 +26,23 @@ public class FuncionarioDao {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO FUNCIONARIO(nome,cpf,telefone,email) VALUES (?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO FUNCIONARIO (NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR, FILIAL, CARGO, HABILITADO) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCpf());
-            stmt.setString(3, funcionario.getTelefone());
-            stmt.setString(4, funcionario.getEmail());
+            stmt.setString(3, funcionario.getRg());
+            stmt.setString(4, funcionario.getEndereco());
+            stmt.setString(5, funcionario.getNumero());
+            stmt.setString(6, funcionario.getComplemento());
+            stmt.setString(7, funcionario.getCidade());
+            stmt.setString(8, funcionario.getBairro());
+            stmt.setString(9, funcionario.getEstado());
+            stmt.setString(10, funcionario.getCep());
+            stmt.setString(11, funcionario.getEmail());
+            stmt.setString(12, funcionario.getTelefone());
+            stmt.setString(13, funcionario.getCelular());
+            stmt.setString(14, funcionario.getFilial());
+            stmt.setString(15, funcionario.getCargo());
+            stmt.setBoolean(16, funcionario.isHabilitado());
 
             stmt.executeUpdate();
 
@@ -55,11 +67,23 @@ public class FuncionarioDao {
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
 
-                funcionario.setId(rs.getInt("id"));
-                funcionario.setNome(rs.getString("nome"));
-                funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setTelefone(rs.getString("telefone"));
-                funcionario.setEmail(rs.getString("email"));
+                funcionario.setId(rs.getInt("ID"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setEndereco(rs.getString("ENDERECO"));
+                funcionario.setNumero(rs.getString("NUMERO"));
+                funcionario.setComplemento(rs.getString("COMPLEMENTO"));
+                funcionario.setCidade(rs.getString("CIDADE"));
+                funcionario.setBairro(rs.getString("BAIRRO"));
+                funcionario.setEstado(rs.getString("ESTADO"));
+                funcionario.setCep(rs.getString("CEP"));
+                funcionario.setEmail(rs.getString("EMAIL"));
+                funcionario.setTelefone(rs.getString("TELEFONE"));
+                funcionario.setCelular(rs.getString("CELULAR"));
+                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setCargo(rs.getString("CARGO"));
+                funcionario.setHabilitado(rs.getBoolean("HABILITADO"));
 
                 funcionarios.add(funcionario);
             }
@@ -87,10 +111,22 @@ public class FuncionarioDao {
             while (rs.next()) {
                 Funcionario funcionario = new Funcionario();
 
-                funcionario.setNome(rs.getString("nome"));
-                funcionario.setCpf(rs.getString("cpf"));
-                funcionario.setTelefone(rs.getString("telefone"));
-                funcionario.setEmail(rs.getString("email"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setEndereco(rs.getString("ENDERECO"));
+                funcionario.setNumero(rs.getString("NUMERO"));
+                funcionario.setComplemento(rs.getString("COMPLEMENTO"));
+                funcionario.setCidade(rs.getString("CIDADE"));
+                funcionario.setBairro(rs.getString("BAIRRO"));
+                funcionario.setEstado(rs.getString("ESTADO"));
+                funcionario.setCep(rs.getString("CEP"));
+                funcionario.setEmail(rs.getString("EMAIL"));
+                funcionario.setTelefone(rs.getString("TELEFONE"));
+                funcionario.setCelular(rs.getString("CELULAR"));
+                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setCargo(rs.getString("CARGO"));
+                funcionario.setHabilitado(rs.getBoolean("HABILITADO"));
 
                 funcionarios.add(funcionario);
             }
@@ -108,12 +144,26 @@ public class FuncionarioDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = connection.prepareStatement("UPDATE FUNCIONARIO SET nome = ?, cpf = ?, telefone = ?, email = ? WHERE id = ?");
+            stmt = connection.prepareStatement("UPDATE FUNCIONARIO SET UPDATE CLIENTE SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, "
+                    + "ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? , FILIAL = ?, CARGO = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCpf());
-            stmt.setString(3, funcionario.getTelefone());
-            stmt.setString(4, funcionario.getEmail());
+            stmt.setString(3, funcionario.getRg());
+            stmt.setString(4, funcionario.getEndereco());
+            stmt.setString(5, funcionario.getNumero());
+            stmt.setString(6, funcionario.getComplemento());
+            stmt.setString(7, funcionario.getCidade());
+            stmt.setString(8, funcionario.getBairro());
+            stmt.setString(9, funcionario.getEstado());
+            stmt.setString(10, funcionario.getCep());
+            stmt.setString(11, funcionario.getEmail());
+            stmt.setString(12, funcionario.getTelefone());
+            stmt.setString(13, funcionario.getCelular());
+            stmt.setString(14, funcionario.getFilial());
+            stmt.setString(15, funcionario.getCargo());
+            stmt.setBoolean(16, funcionario.isHabilitado());
+            
             stmt.executeUpdate();
 
         } catch (SQLException ex) {

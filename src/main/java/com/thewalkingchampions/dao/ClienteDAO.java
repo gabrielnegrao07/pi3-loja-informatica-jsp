@@ -121,13 +121,53 @@ public class ClienteDAO {
         return clientes;
     }
 
-    public void update(Cliente cliente) {
+    public Cliente searchID(int id) {
+        Connection connection = Database.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Cliente cliente = new Cliente();
+
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM CLIENTE WHERE ID LIKE ?;");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                cliente.setId(rs.getInt("ID"));
+                cliente.setNome(rs.getString("NOME"));
+                cliente.setCpf(rs.getString("CPF"));
+                cliente.setRg(rs.getString("RG"));
+                cliente.setEndereco(rs.getString("ENDERECO"));
+                cliente.setNumero(rs.getString("NUMERO"));
+                cliente.setComplemento(rs.getString("COMPLEMENTO"));
+                cliente.setCidade(rs.getString("CIDADE"));
+                cliente.setBairro(rs.getString("BAIRRO"));
+                cliente.setEstado(rs.getString("ESTADO"));
+                cliente.setCep(rs.getString("CEP"));
+                cliente.setEmail(rs.getString("EMAIL"));
+                cliente.setTelefone(rs.getString("TELEFONE"));
+                cliente.setCelular(rs.getString("CELULAR"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Database.closeConnection(connection, stmt, rs);
+        }
+        return cliente;
+    }
+
+    public boolean update(Cliente cliente) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
 
+        boolean cond;
+
         try {
-            stmt = connection.prepareStatement("UPDATE CLIENTE SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?"
-                    + " ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE CLIENTE SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? WHERE ID = ?");
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
@@ -142,14 +182,19 @@ public class ClienteDAO {
             stmt.setString(11, cliente.getEmail());
             stmt.setString(12, cliente.getTelefone());
             stmt.setString(13, cliente.getCelular());
-            stmt.setDate(14, cliente.getDataNasc());
+            stmt.setInt(14, cliente.getId());
             stmt.executeUpdate();
+
+            cond = true;
 
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public void delete(int id) {

@@ -1,28 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.thewalkingchampions.controller;
 
 import com.thewalkingchampions.dao.FuncionarioDao;
 import com.thewalkingchampions.model.Funcionario;
 import java.util.List;
 
-/**
- *
- * @author Johnathan
- */
+
 public class FuncionarioController {
 
-    public static void save(String nome, String cpf, String telefone, String email) {
-        Funcionario f = new Funcionario(nome, cpf, telefone, email);
+    public static void save(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, String filial, String cargo, boolean habilitado) {
+        Funcionario f = new Funcionario(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, filial, cargo, habilitado);
         FuncionarioDao dao = new FuncionarioDao();
         dao.save(f);
     }
 
-    public static void update(int id, String nome, String cpf, String telefone, String email) {
-        Funcionario f = new Funcionario(id, nome, cpf, telefone, email);
+    public static void update(int id, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, String filial, String cargo, boolean habilitado) {
+        Funcionario f = new Funcionario(id, nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, filial, cargo, habilitado);
         FuncionarioDao dao = new FuncionarioDao();
         dao.update(f);
     }

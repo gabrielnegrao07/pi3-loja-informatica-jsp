@@ -1,64 +1,78 @@
-<%-- 
-    Document   : index
-    Created on : 09/05/2019, 15:14:04
-    Author     : GIOVANNI.MCARIGNATO
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>DASHBOARD</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" type="text/css" href="CSS\estiloIndex.css">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <header>
-            <h1>Tades</h1>
-        </header>
-        <div class="container">   
-            <div class="centro">
-                <table>
-                    <tr>
-                        <td>
-                            <label><b>Cliente:</b></label>
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Search" style="width: 130px; height: 30px" OnClick="parent.location.href = 'SearchCliente'">
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Save" style="width: 130px; height: 30px" OnClick="parent.location.href = 'SaveCliente'">
-                        </td>
-                    <tr>
-                    <tr>
-                        <td>
-                            <label><b>Produto:</b></label>
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Search" style="width: 130px; height: 30px" OnClick="parent.location.href = 'SearchProduto'">
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Save"  style="width: 130px; height: 30px" OnClick="parent.location.href = 'SaveProduto'">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label><b>Funcionario:</b></label>
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Search" style="width: 130px; height: 30px" OnClick="parent.location.href = 'SearchFuncionario'">
-                        </td>
-                        <td>
-                            <input class="buttomCentro" type="submit" value="Save" style="width: 130px; height: 30px" OnClick="parent.location.href = 'SaveFuncionario'">
-                        </td>
-                    </tr>
-                </table>
+    <head>
+    <body>	
+        <div class="container">
+            <header>
+                <h1>DASHBOARD</h1>
+                <nav>
+                    <ul id=opcao>
+                        <li><a href="#">DASHBOARD</a></li>
+                        <li><a href="#">PEDIDO</a>
+                            <ul>
+                                <li><a href="#">INCLUIR PEDIDO</a></li>
+                                <li><a href="#">CONSULTAR PEDIDO</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">CLIENTE</a>
+                            <ul>
+                                <li><a href="saveCliente.jsp">INCLUIR CLIENTE</a></li>
+                                <li><a OnClick="parent.location.href = 'SearchCliente'">CONSULTAR CLIENTE</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">PRODUTO</a>
+                            <ul>
+                                <li><a href="#">INCLUIR PRODUTO</a></li>
+                                <li><a href="#">CONSULTAR PRODUTO</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">ESTOQUE</a>
+                            <ul>
+                                <li><a href="#">CONSULTAR ESTOQUE</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">RELATORIOS</a>
+                            <ul>
+                                <li><a href="#">SUB 1</a></li>
+                                <li><a href="#">SUB 2</a></li>
+                                <li><a href="#">SUB 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">FUNCIONARIOS</a>
+                            <ul>
+                                <li><a href="saveFuncionario.jsp">INCLUIR FUNCIONARIOS</a></li>
+                                <li><a OnClick="parent.location.href = 'SearchFuncionario'">CONSULTAR FUNCIONARIO</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">FILIAIS</a>
+                            <ul>
+                                <li><a href="#">INCLUIR FILIAIS</a></li>
+                                <li><a href="#">CONSULTAR FILIAIS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">SUPORTE</a>
+                            <ul>
+                                <li><a href="#">ABRIR CHAMADO</a></li>
+                                <li><a href="#">CONSULTAR</a></li>
+                            </ul>
+                        </li>
+                    </ul>					
+                </nav>	
+            </header>
+
+            <div class="index">
+
             </div>
-        </div> 
+        </div>
         <footer>
-            <h2>
-                TADES Inc. 2019
-            </h2>
+            <h2>TADES Inc. 2019</h2>
         </footer>
     </body>
 </html>
