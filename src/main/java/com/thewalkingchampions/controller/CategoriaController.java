@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class CategoriaController {
 
-    public static void save(String nome) {
+    public static boolean save(String nome) {
         Categoria c = new Categoria(nome);
         CategoriaDAO dao = new CategoriaDAO();
-        dao.save(c);
+        return dao.save(c);
     }
 
     public static void update(int id, String nome) {
@@ -35,6 +35,11 @@ public class CategoriaController {
     public static List<Categoria> search(String nome) {
         CategoriaDAO dao = new CategoriaDAO();
         return dao.search(nome);
+    }
+
+    public static Categoria searchID(int id) {
+        CategoriaDAO dao = new CategoriaDAO();
+        return dao.searchID(id);
     }
 
     public static List<Categoria> listAll() {

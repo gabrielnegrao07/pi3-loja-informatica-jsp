@@ -22,20 +22,25 @@ import java.util.logging.Logger;
  */
 public class CategoriaDAO {
 
-    public void save(Categoria categoria) {
+    public boolean save(Categoria categoria) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
+        boolean cond;
         try {
-            stmt = connection.prepareStatement("INSERT INTO categoria (nome) VALUES (?);");
+            stmt = connection.prepareStatement("INSERT INTO CATEGORIA (nome) VALUES (?);");
             stmt.setString(1, categoria.getNome());
 
             stmt.executeUpdate();
+            cond = true;
 
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(CategoriaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public List<Categoria> listAll() {
@@ -46,13 +51,13 @@ public class CategoriaDAO {
         List<Categoria> categorias = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CATEGORIAS");
+            stmt = connection.prepareStatement("SELECT * FROM CATEGORIA");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
                 Categoria categoria = new Categoria();
 
-                categoria.setId(rs.getInt("idCategoria"));
+                categoria.setId(rs.getInt("id"));
                 categoria.setNome(rs.getString("nome"));
                 categorias.add(categoria);
             }
@@ -92,6 +97,33 @@ public class CategoriaDAO {
         return categorias;
     }
 
+    public Categoria searchID(int id) {
+        Connection connection = Database.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Categoria categoria = new Categoria();
+
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM CATEGORIA WHERE ID LIKE ?;");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                categoria.setId(rs.getInt("ID"));
+                categoria.setNome(rs.getString("NOME"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Database.closeConnection(connection, stmt, rs);
+        }
+        return categoria;
+    }
+
     public void update(Categoria categoria) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
@@ -100,6 +132,7 @@ public class CategoriaDAO {
             stmt = connection.prepareStatement("UPDATE CATEGORIA SET nome = ? WHERE id = ?");
 
             stmt.setString(1, categoria.getNome());
+            stmt.setInt(2, categoria.getId());
             stmt.executeUpdate();
 
         } catch (SQLException ex) {

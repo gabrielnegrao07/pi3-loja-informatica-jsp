@@ -74,7 +74,6 @@
                 ${msg}
                 <div class="formulario">
 
-
                     <form autocomplete="off" action="UpdateCliente" method="post">
 
                         <input type="hidden" name="id"  value="${cliente.id}" style="width: 300px; height: 20px">

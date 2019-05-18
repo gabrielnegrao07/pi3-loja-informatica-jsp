@@ -92,13 +92,13 @@
             </header>
             <div>
 
-                    <div class="form-group input-group">
-                        <input type="text" name="filtro" placeholder="Digite...">
-                        <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
-                    </div>
+                <div class="form-group input-group">
+                    <input type="text" name="filtro" placeholder="Digite...">
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
+                </div>
 
                 <div>
-           
+
                     <table>
                         <tr>
                             <th>Nome</th>
@@ -130,9 +130,7 @@
                             <form method="post" action="${pageContext.request.contextPath}/DeleteFuncionario">
                                 <td><button type="submit" value="${funcionarios.id}" name="id">Delete</button></td>
                             </form>
-                            <form method="post" action="${pageContext.request.contextPath}/UpdateFuncionario">
-                                <td><button type="submit" value="${funcionarios.id}" name="id">Update</button></td>
-                            </form>
+                            <td><a href="UpdateFuncionario?action=upd&id=${funcionarios.id}"><button type="submit" value="${funcionarios.id}" name="id">Update</button></a></td>
                             </tr>                  
                         </c:forEach>
                         </form>

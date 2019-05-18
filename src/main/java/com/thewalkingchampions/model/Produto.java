@@ -11,101 +11,101 @@ package com.thewalkingchampions.model;
  */
 public class Produto {
 
-    private int idProduto;
-    private String nomeProduto;
-    private String descricaoProduto;
-    private float valorProduto;
-    private int quantidadeProduto;
-    private boolean habilitadoProduto;
-    private int idCategoriaProduto;
-    private int idFilial;
+    private int id;
+    private String nome;
+    private int quantidade;
+    private float valor;
+    private String descricao;
+    private int categoria;
+    private int filial;
+    private boolean habilitado;
 
-    public Produto() {
-
+    public Produto() 
+    {
     }
 
-    public Produto(String nome, String descricao, float valor, int quantidade, boolean habilitado, int idCategoria, int idFilial) {
-        this.nomeProduto = nome;
-        this.descricaoProduto = descricao;
-        this.valorProduto = valor;
-        this.quantidadeProduto = quantidade;
-        this.habilitadoProduto = habilitado;
-        this.idCategoriaProduto = idCategoria;
-        this.idFilial = idFilial;
+    public Produto(String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.filial = filial;
+        this.habilitado = habilitado;
     }
 
-    public Produto(int id, String nome, String descricao, float valor, int quantidade, boolean habilitado, int idCategoria, int idFilial) {
-        this.idProduto = id;
-        this.nomeProduto = nome;
-        this.descricaoProduto = descricao;
-        this.valorProduto = valor;
-        this.quantidadeProduto = quantidade;
-        this.habilitadoProduto = habilitado;
-        this.idCategoriaProduto = idCategoria;
-        this.idFilial = idFilial;
+    public Produto(int id, String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+        this.id = id;
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.valor = valor;
+        this.descricao = descricao;
+        this.categoria = categoria;
+        this.filial = filial;
+        this.habilitado = habilitado;
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getId() {
+        return id;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescricaoProduto() {
-        return descricaoProduto;
+    public int getQuantidade() {
+        return quantidade;
     }
 
-    public void setDescricaoProduto(String descricaoProduto) {
-        this.descricaoProduto = descricaoProduto;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public float getValorProduto() {
-        return valorProduto;
+    public float getValor() {
+        return valor;
     }
 
-    public void setValorProduto(float valorProduto) {
-        this.valorProduto = valorProduto;
+    public void setValor(float valor) {
+        this.valor = valor;
     }
 
-    public int getQuantidadeProduto() {
-        return quantidadeProduto;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setQuantidadeProduto(int quantidadeProduto) {
-        this.quantidadeProduto = quantidadeProduto;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public boolean isHabilitadoProduto() {
-        return habilitadoProduto;
+    public int getCategoria() {
+        return categoria;
     }
 
-    public void setHabilitadoProduto(boolean habilitadoProduto) {
-        this.habilitadoProduto = habilitadoProduto;
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
     }
 
-    public int getIdCategoriaProduto() {
-        return idCategoriaProduto;
+    public int getFilial() {
+        return filial;
     }
 
-    public void setIdCategoriaProduto(int idCategoriaProduto) {
-        this.idCategoriaProduto = idCategoriaProduto;
+    public void setFilial(int filial) {
+        this.filial = filial;
     }
 
-    public int getIdFilial() {
-        return idFilial;
+    public boolean isHabilitado() {
+        return habilitado;
     }
 
-    public void setIdFilial(int idFilial) {
-        this.idFilial = idFilial;
+    public void setHabilitado(boolean habilitado) {
+        this.habilitado = habilitado;
     }
 }

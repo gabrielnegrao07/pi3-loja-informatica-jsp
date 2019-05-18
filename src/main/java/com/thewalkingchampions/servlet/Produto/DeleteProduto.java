@@ -1,4 +1,4 @@
-package com.thewalkingchampions.servlet;
+package com.thewalkingchampions.servlet.Produto;
 
 import com.thewalkingchampions.controller.ProdutoController;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class DeleteProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idProduto = request.getParameter("idProduto");
+        String idProduto = request.getParameter("id");
 
         ProdutoController.delete(Integer.parseInt(idProduto));
 

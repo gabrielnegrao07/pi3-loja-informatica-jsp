@@ -1,7 +1,7 @@
-package com.thewalkingchampions.servlet;
+package com.thewalkingchampions.servlet.Categoria;
 
-import com.thewalkingchampions.controller.ProdutoController;
-import com.thewalkingchampions.model.Produto;
+import com.thewalkingchampions.controller.CategoriaController;
+import com.thewalkingchampions.model.Categoria;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -11,22 +11,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author GIOVANNI.MCARIGNATO
- */
-@WebServlet(name = "SearchProduto", urlPatterns = {"/SearchProduto"})
-public class SearchProduto extends HttpServlet {
+
+@WebServlet(name = "SearchCategoria", urlPatterns = {"/SearchCategoria"})
+public class SearchCategoria extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Produto> produtos = ProdutoController.listAll();
+        List<Categoria> categorias = CategoriaController.listAll();
         
         
-        request.setAttribute("search", produtos);
+        request.setAttribute("search", categorias);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("/WEB-INF/jsp/searchProduto.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchCategoria.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -139,13 +139,55 @@ public class FuncionarioDao {
         return funcionarios;
     }
 
-    public void update(Funcionario funcionario) {
+    public Funcionario searchID(int id) {
+        Connection connection = Database.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Funcionario funcionario = new Funcionario();
+
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM FUNCIONARIO WHERE ID LIKE ?;");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+                funcionario.setId(rs.getInt("ID"));
+                funcionario.setNome(rs.getString("NOME"));
+                funcionario.setCpf(rs.getString("CPF"));
+                funcionario.setRg(rs.getString("RG"));
+                funcionario.setEndereco(rs.getString("ENDERECO"));
+                funcionario.setNumero(rs.getString("NUMERO"));
+                funcionario.setComplemento(rs.getString("COMPLEMENTO"));
+                funcionario.setCidade(rs.getString("CIDADE"));
+                funcionario.setBairro(rs.getString("BAIRRO"));
+                funcionario.setEstado(rs.getString("ESTADO"));
+                funcionario.setCep(rs.getString("CEP"));
+                funcionario.setEmail(rs.getString("EMAIL"));
+                funcionario.setTelefone(rs.getString("TELEFONE"));
+                funcionario.setCelular(rs.getString("CELULAR"));
+                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setBairro(rs.getString("BAIRRO"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Database.closeConnection(connection, stmt, rs);
+        }
+        return funcionario;
+    }
+
+    public boolean update(Funcionario funcionario) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
 
+        boolean cond;
+
         try {
-            stmt = connection.prepareStatement("UPDATE FUNCIONARIO SET UPDATE CLIENTE SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, "
-                    + "ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? , FILIAL = ?, CARGO = ?, HABILITADO = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE FUNCIONARIO SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? , FILIAL = ?, CARGO = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCpf());
@@ -163,14 +205,20 @@ public class FuncionarioDao {
             stmt.setString(14, funcionario.getFilial());
             stmt.setString(15, funcionario.getCargo());
             stmt.setBoolean(16, funcionario.isHabilitado());
-            
+            stmt.setInt(17, funcionario.getId());
+
             stmt.executeUpdate();
+
+            cond = true;
 
         } catch (SQLException ex) {
             Logger.getLogger(FuncionarioDao.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public void delete(int id) {

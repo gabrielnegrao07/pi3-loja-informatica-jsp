@@ -18,7 +18,7 @@
                         <li><a href="#">PEDIDO</a>
                             <ul>
                                 <li><a href="#">INCLUIR PEDIDO</a></li>
-                                <li><a href="#">CONSULTAR PEDIDO</a></li>
+                                <li><a OnClick="parent.location.href = 'SearchCategoria'">CONSULTAR PEDIDO</a></li>
                             </ul>
                         </li>
                         <li><a href="#">CLIENTE</a>
@@ -29,8 +29,8 @@
                         </li>
                         <li><a href="#">PRODUTO</a>
                             <ul>
-                                <li><a href="#">INCLUIR PRODUTO</a></li>
-                                <li><a href="#">CONSULTAR PRODUTO</a></li>
+                                <li><a href="SaveProduto?action=savar">INCLUIR PRODUTO</a></li>
+                                <li><a OnClick="parent.location.href = 'SearchProduto'">CONSULTAR PRODUTO</a></li>
                             </ul>
                         </li>
                         <li><a href="#">ESTOQUE</a>
@@ -53,7 +53,7 @@
                         </li>
                         <li><a href="#">FILIAIS</a>
                             <ul>
-                                <li><a href="#">INCLUIR FILIAIS</a></li>
+                                <li><a a OnClick="parent.location.href = 'SearchFilial'">INCLUIR FILIAIS</a></li>
                                 <li><a href="#">CONSULTAR FILIAIS</a></li>
                             </ul>
                         </li>

@@ -2,7 +2,6 @@ package com.thewalkingchampions.controller;
 
 import com.thewalkingchampions.dao.ClienteDAO;
 import com.thewalkingchampions.model.Cliente;
-import java.sql.Date;
 import java.util.List;
 
 public class ClienteController {

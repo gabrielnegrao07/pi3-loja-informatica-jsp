@@ -5,7 +5,7 @@
  */
 package com.thewalkingchampions.dao;
 
-import com.thewalkingchampions.connection.Database;
+import com.thewalkingchampions.connection.Database;;
 import com.thewalkingchampions.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,31 +16,22 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Johnathan
- */
+
 public class ProdutoDAO {
 
     public void save(Produto produto) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO PRODUTO(nome,descricao,valor,quantidade,habilitado) VALUES (?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO PRODUTO(NOME, QUANTIDADE, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?,?);");
 
-            int habilitado;
-            if (produto.isHabilitadoProduto() == true) 
-            {
-                habilitado = 1;
-            } else {
-                habilitado = 0;
-            }
-
-            stmt.setString(1, produto.getNomeProduto());
-            stmt.setString(2, produto.getDescricaoProduto());
-            stmt.setFloat(3, produto.getValorProduto());
-            stmt.setInt(4, produto.getQuantidadeProduto());
-            stmt.setInt(5, habilitado);
+            stmt.setString(1, produto.getNome());
+            stmt.setInt(2, produto.getQuantidade());
+            stmt.setFloat(3, produto.getValor());
+            stmt.setString(4, produto.getDescricao());
+            stmt.setInt(5, produto.getCategoria());
+            stmt.setInt(6, produto.getFilial());
+            stmt.setBoolean(7, produto.isHabilitado());
 
             stmt.executeUpdate();
 
@@ -65,14 +56,14 @@ public class ProdutoDAO {
             while (rs.next()) {
                 Produto produto = new Produto();
 
-                produto.setIdProduto(rs.getInt("id"));
-                produto.setNomeProduto(rs.getString("nome"));
-                produto.setDescricaoProduto(rs.getString("descricao"));
-                produto.setValorProduto(rs.getFloat("valor"));
-                produto.setQuantidadeProduto(rs.getInt("quantidade"));
-                /*produto.setHabilitadoProduto(rs.getBoolean("habilitado"));
-                produto.setIdCategoriaProduto(rs.getInt("idcategoria"));
-                produto.setIdFilial(rs.getInt("idfilial"));*/
+                produto.setId(rs.getInt("ID"));
+                produto.setNome(rs.getString("NOME"));
+                produto.setQuantidade(rs.getInt("QUANTIDADE"));
+                produto.setValor(rs.getFloat("VALOR"));
+                produto.setDescricao(rs.getString("DESCRICAO"));
+                produto.setCategoria(rs.getInt("CATEGORIA"));
+                produto.setFilial(rs.getInt("FILIAL"));
+                produto.setHabilitado(rs.getBoolean("HABILITADO"));
 
                 produtos.add(produto);
             }
@@ -100,13 +91,14 @@ public class ProdutoDAO {
             while (rs.next()) {
                 Produto produto = new Produto();
 
-                produto.setNomeProduto(rs.getString("nome"));
-                produto.setDescricaoProduto(rs.getString("descricao"));
-                produto.setValorProduto(rs.getFloat("valor"));
-                produto.setQuantidadeProduto(rs.getInt("quantidade"));
-                produto.setHabilitadoProduto(rs.getBoolean("habilitado"));
-                produto.setIdCategoriaProduto(rs.getInt("idcategoria"));
-                produto.setIdFilial(rs.getInt("idfilial"));
+                produto.setId(rs.getInt("ID"));
+                produto.setNome(rs.getString("NOME"));
+                produto.setQuantidade(rs.getInt("QUANTIDADE"));
+                produto.setValor(rs.getFloat("VALOR"));
+                produto.setDescricao(rs.getString("DESCRICAO"));
+                produto.setCategoria(rs.getInt("CATEGORIA"));
+                produto.setFilial(rs.getInt("FILIAL"));
+                produto.setHabilitado(rs.getBoolean("HABILITADO"));
 
                 produtos.add(produto);
             }
@@ -119,28 +111,68 @@ public class ProdutoDAO {
         return produtos;
     }
 
-    public void update(Produto produto) {
+    public Produto searchID(int id) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Produto produto = new Produto();
 
         try {
-            stmt = connection.prepareStatement("UPDATE PRODUTO SET nome = ?, descricao = ?, valor = ?, quantidade = ?, habilitado = ?, idcategoria = ?, idfilial = ? WHERE id = ?");
+            stmt = connection.prepareStatement("SELECT * FROM PRODUTO WHERE ID LIKE ?;");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
 
-            stmt.setString(1, produto.getNomeProduto());
-            stmt.setString(2, produto.getDescricaoProduto());
-            stmt.setFloat(3, produto.getValorProduto());
-            stmt.setInt(4, produto.getQuantidadeProduto());
-            stmt.setBoolean(5, produto.isHabilitadoProduto());
-            stmt.setInt(6, produto.getIdCategoriaProduto());
-            stmt.setInt(7, produto.getIdFilial());
+            while (rs.next()) {
 
-            stmt.executeUpdate();
+                produto.setId(rs.getInt("ID"));
+                produto.setNome(rs.getString("NOME"));
+                produto.setQuantidade(rs.getInt("QUANTIDADE"));
+                produto.setValor(rs.getFloat("VALOR"));
+                produto.setDescricao(rs.getString("DESCRICAO"));
+                produto.setCategoria(rs.getInt("CATEGORIA"));
+                produto.setFilial(rs.getInt("FILIAL"));
+                produto.setHabilitado(rs.getBoolean("HABILITADO"));
+
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
+            Database.closeConnection(connection, stmt, rs);
+        }
+        return produto;
+    }
+
+    public boolean update(Produto produto) {
+        Connection connection = Database.getConnection();
+        PreparedStatement stmt = null;
+
+        boolean cond;
+
+        try {
+            stmt = connection.prepareStatement("UPDATE PRODUTO SET NOME = ?, QUANTIDADE = ?, VALOR = ?, DESCRICAO = ?, CATEGORIA = ?, FILIAL = ?, HABILITADO = ? WHERE ID = ?");
+
+            stmt.setString(1, produto.getNome());
+            stmt.setInt(2, produto.getQuantidade());
+            stmt.setFloat(3, produto.getValor());
+            stmt.setString(4, produto.getDescricao());
+            stmt.setInt(5, produto.getCategoria());
+            stmt.setInt(6, produto.getFilial());
+            stmt.setBoolean(7, produto.isHabilitado());
+            stmt.setInt(8, produto.getId());
+            stmt.executeUpdate();
+
+            cond = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
+        } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public void delete(int id) {
