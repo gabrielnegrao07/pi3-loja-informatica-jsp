@@ -5,7 +5,7 @@
  */
 package com.thewalkingchampions.dao;
 
-import com.thewalkingchampions.connection.Database;;
+import com.thewalkingchampions.connection.Database;
 import com.thewalkingchampions.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 
 public class ProdutoDAO {
 
@@ -50,7 +49,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM PRODUTO");
+            stmt = connection.prepareStatement("SELECT P.*, C.NOME, F.NOME FROM PRODUTO AS P INNER JOIN CATEGORIA AS C INNER JOIN FILIAL F ON P.CATEGORIA = C.ID AND P.FILIAL = F.ID;");
             rs = stmt.executeQuery();
 
             while (rs.next()) {

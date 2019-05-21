@@ -9,108 +9,145 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Clientes</title>
+        <title>:: CLIENTES- TADES ::</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="CSS\estiloList.css">
-    </head>
+        <link rel="stylesheet" type="text/css" href="CSS\searchEstilo.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
     <body>	
         <div class="container">
             <header>
-                <h1>DASHBOARD</h1>
-                <nav>
-                    <ul id=opcao>
-                        <li><a href="#">DASHBOARD</a></li>
-                        <li><a href="#">PEDIDO</a>
-                            <ul>
-                                <li><a href="#">INCLUIR PEDIDO</a></li>
-                                <li><a href="#">CONSULTAR PEDIDO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">CLIENTE</a>
-                            <ul>
-                                <li><a href="cadastroCliente.html">INCLUIR CLIENTE</a></li>
-                                <li><a href="#">CONSULTAR CLIENTE</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">PRODUTO</a>
-                            <ul>
-                                <li><a href="#">INCLUIR PRODUTO</a></li>
-                                <li><a href="#">CONSULTAR PRODUTO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">ESTOQUE</a>
-                            <ul>
-                                <li><a href="#">CONSULTAR ESTOQUE</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">RELATORIOS</a>
-                            <ul>
-                                <li><a href="#">SUB 1</a></li>
-                                <li><a href="#">SUB 2</a></li>
-                                <li><a href="#">SUB 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">FUNCIONARIOS</a>
-                            <ul>
-                                <li><a href="#">INCLUIR FUNCIONARIOS</a></li>
-                                <li><a href="#">CONSULTAR PRODUTO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">FILIAIS</a>
-                            <ul>
-                                <li><a href="#">INCLUIR FILIAIS</a></li>
-                                <li><a href="#">CONSULTAR FILIAIS</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">SUPORTE</a>
-                            <ul>
-                                <li><a href="#">ABRIR CHAMADO</a></li>
-                                <li><a href="#">CONSULTAR</a></li>
-                            </ul>
-                        </li>
-                    </ul>					
-                </nav>	
+                <h1>CLIENTES</h1>
+                <div class="sidenav">
+                    <button class="dropdown-btn" href="#">DASHBOARD</button>
+
+                    <button class="dropdown-btn">PEDIDO 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR PEDIDO</a>
+                        <a href="#">CONSULTAR PEDIDO</a>
+                    </div>
+
+                    <button class="dropdown-btn">CLIENTE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR CLIENTE</a>
+                        <a href="#">CONSULTAR CLIENTE</a>
+                    </div>
+
+                    <button class="dropdown-btn">PRODUTO
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR PRODUTO</a>
+                        <a href="#">CONSULTAR PRODUTO</a>
+                        <a href="#">INCLUIR CATEGORIA</a>
+                        <a href="#">CONSULTAR CATEGORIA</a>
+                    </div>
+
+                    <button class="dropdown-btn">ESTOQUE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">CONSULTAR ESTOQUE</a>
+                    </div>
+
+                    <button class="dropdown-btn">RELATORIOS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">SUB 1</a>
+                        <a href="#">SUB 2</a>
+                        <a href="#">SUB 3</a>
+                    </div>
+
+                    <button class="dropdown-btn">FUNCIONARIOS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR FUNCIONARIOS</a>
+                        <a href="#">CONSULTAR PRODUTO</a>
+                    </div>
+
+                    <button class="dropdown-btn">FILIAIS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR FILIAIS</a>
+                        <a href="#">CONSULTAR FILIAIS</a>
+                    </div>
+
+                    <button class="dropdown-btn">SUPORTE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">ABRIR CHAMADO</a>
+                        <a href="#">CONSULTAR</a>
+                    </div>
+                </div>	
             </header>
 
-            <div class="index">
+            <div>
 
-                <table class="table table-bordered">
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>CPF</th>
-                        <th>Endereço</th>
-                        <th>Numero</th>
-                        <th>Estado</th>
-                        <th>Email</th>
-                        <th>Telefone</th>
-                        <th colspan="2">Ação</th>
-                    </tr>
+                <div>
+                    <input type="text" name="filtro" placeholder="Digite..." style="width: 2000px; height: 30px">
+                    <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
+                </div>
 
-                    <c:forEach var="cliente" items="${search}" >
+
+                <div>
+                    <table>
                         <tr>
-                            <td><c:out value="${cliente.id}"/></td>
-                            <td><c:out value="${cliente.nome}"/></td>
-                            <td><c:out value="${cliente.cpf}"/></td>
-                            <td><c:out value="${cliente.endereco}"/></td>
-                            <td><c:out value="${cliente.numero}"/></td>
-                            <td><c:out value="${cliente.estado}"/></td>
-                            <td><c:out value="${cliente.email}"/></td>
-                            <td><c:out value="${cliente.telefone}"/></td>
-                        <form method="post" action="${pageContext.request.contextPath}/DeleteCliente">
-                            <td><button type="submit" value="${cliente.id}" name="id">Delete</button></td>
-                        </form>     
-                        <td><a href="UpdateCliente?action=upd&id=${cliente.id}"><button type="submit" value="${cliente.id}" name="id">Update</button></a></td>
-                        </tr>                  
-                    </c:forEach>
-                    </form>
-                </table>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Email</th>
+                            <th>Celular</th>
+                            <th colspan="2">Ação</th>
+                        </tr>
+
+
+                        <c:forEach var="cliente" items="${search}" >
+                            <tr>
+                                <td><c:out value="${cliente.id}"/></td>
+                                <td><c:out value="${cliente.nome}"/></td>
+                                <td><c:out value="${cliente.cpf}"/></td>
+                                <td><c:out value="${cliente.email}"/></td>
+                                <td><c:out value="${cliente.celular}"/></td>
+                            <form method="post" action="${pageContext.request.contextPath}/DeleteCliente">
+                                <td><button class="buttomDeletar" type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Delete</button></td>
+                            </form>     
+                            <td><a href="UpdateCliente?action=upd&id=${cliente.id}"><button class="buttomUpdate" type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Update</button></a></td>
+                            </tr>                  
+                        </c:forEach>
+                        </form>
+                    </table>
+                </div>
             </div>
         </div>
         <footer>
             <h2>TADES Inc. 2019</h2>
         </footer>
+
+        <script>
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

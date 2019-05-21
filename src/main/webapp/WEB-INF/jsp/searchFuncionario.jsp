@@ -9,28 +9,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Clientes</title>
+        <title>:: FUNCIONARIOS - TADES ::</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="CSS\estiloList.css">
+        <link rel="stylesheet" type="text/css" href="CSS\searchEstilo.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <head>
     <body>	
         <div class="container">
             <header>
-                <h1>DASHBOARD</h1>
+                <h1>FUNCIONARIOS</h1>
                 <div class="sidenav">
-                    <a href="#">DASHBOARD</a>
+                    <button class="dropdown-btn" href="#">DASHBOARD</button>
 
-                    <button class="dropdown-btn">Dropdown 
+                    <button class="dropdown-btn">PEDIDO 
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">INCLUIR PEDIDO</a>
+                        <a href="#">CONSULTAR PEDIDO</a>
                     </div>
 
                     <button class="dropdown-btn">CLIENTE
@@ -47,6 +46,8 @@
                     <div class="dropdown-container">
                         <a href="#">INCLUIR PRODUTO</a>
                         <a href="#">CONSULTAR PRODUTO</a>
+                        <a href="#">INCLUIR CATEGORIA</a>
+                        <a href="#">CONSULTAR CATEGORIA</a>
                     </div>
 
                     <button class="dropdown-btn">ESTOQUE
@@ -78,7 +79,7 @@
                     </button>
                     <div class="dropdown-container">
                         <a href="#">INCLUIR FILIAIS</a>
-                        <a href="#">CCONSULTAR FILIAIS</a>
+                        <a href="#">CONSULTAR FILIAIS</a>
                     </div>
 
                     <button class="dropdown-btn">SUPORTE
@@ -90,27 +91,23 @@
                     </div>
                 </div>	
             </header>
+
             <div>
 
-                <div class="form-group input-group">
-                    <input type="text" name="filtro" placeholder="Digite...">
+                <div>
+                    <input type="text" name="filtro" placeholder="Digite..." style="width: 2000px; height: 30px">
                     <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
                 </div>
 
-                <div>
 
+                <div>
                     <table>
                         <tr>
                             <th>Nome</th>
                             <th>CPF</th>
-                            <th>Endereco</th>
-                            <th>Numero</th>
-                            <th>Cidade</th>
-                            <th>Estado</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Filial</th>
-                            <th>Cargo</th>
                             <th colspan="2">Ação</th>
                         </tr>
 
@@ -119,18 +116,13 @@
                             <tr>
                                 <td><c:out value="${funcionarios.nome}"/></td>
                                 <td><c:out value="${funcionarios.cpf}"/></td>
-                                <td><c:out value="${funcionarios.endereco}"/></td>
-                                <td><c:out value="${funcionarios.numero}"/></td>
-                                <td><c:out value="${funcionarios.cidade}"/></td>
-                                <td><c:out value="${funcionarios.estado}"/></td>
                                 <td><c:out value="${funcionarios.email}"/></td>
                                 <td><c:out value="${funcionarios.telefone}"/></td>
                                 <td><c:out value="${funcionarios.filial}"/></td>
-                                <td><c:out value="${funcionarios.cargo}"/></td>
                             <form method="post" action="${pageContext.request.contextPath}/DeleteFuncionario">
-                                <td><button type="submit" value="${funcionarios.id}" name="id">Delete</button></td>
+                                <td><button class="buttomDeletar" type="submit" value="${funcionarios.id}" name="id" style="width: 70px; height: 30px">Delete</button></td>
                             </form>
-                            <td><a href="UpdateFuncionario?action=upd&id=${funcionarios.id}"><button type="submit" value="${funcionarios.id}" name="id">Update</button></a></td>
+                            <td><a href="UpdateFuncionario?action=upd&id=${funcionarios.id}"><button class="buttomUpdate" type="submit" value="${funcionarios.id}" name="id" style="width: 70px; height: 30px">Atualizar</button></a></td>
                             </tr>                  
                         </c:forEach>
                         </form>

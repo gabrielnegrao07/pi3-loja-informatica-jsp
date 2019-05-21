@@ -69,7 +69,7 @@ public class SaveProduto extends HttpServlet {
         ProdutoController.save(nome, Integer.parseInt(quantidade), Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("saveProduto.jsp");
+                = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
 
