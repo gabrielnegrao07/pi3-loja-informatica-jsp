@@ -19,7 +19,7 @@ public class Funcionario {
     private String telefone;
     private String celular;
     private Date dataNasc;
-    private String Filial;
+    private int Filial;
     private String Cargo;
     private boolean habilitado;
 
@@ -27,7 +27,7 @@ public class Funcionario {
 
     }
 
-    public Funcionario(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, String filial, String cargo, boolean habilitado) {
+    public Funcionario(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, int filial, String cargo, boolean habilitado) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -46,7 +46,7 @@ public class Funcionario {
         this.habilitado = habilitado;
     }
 
-    public Funcionario(int id, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, String filial, String cargo, boolean habilitado) {
+    public Funcionario(int id, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, int filial, String cargo, boolean habilitado) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
@@ -186,11 +186,11 @@ public class Funcionario {
         this.dataNasc = dataNasc;
     }
 
-    public String getFilial() {
+    public int getFilial() {
         return Filial;
     }
 
-    public void setFilial(String Filial) {
+    public void setFilial(int Filial) {
         this.Filial = Filial;
     }
 

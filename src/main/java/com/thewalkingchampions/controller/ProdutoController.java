@@ -6,14 +6,14 @@ import java.util.List;
 
 public class ProdutoController {
 
-    public static void save(String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
-        Produto p = new Produto(nome, quantidade, valor, descricao, categoria, filial, habilitado);
+    public static void save(String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+        Produto p = new Produto(nome, valor, descricao, categoria, filial, habilitado);
         ProdutoDAO dao = new ProdutoDAO();
         dao.save(p);
     }
 
-    public static boolean update(int id, String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
-        Produto p = new Produto(id, nome, quantidade, valor, descricao, categoria, filial, habilitado);
+    public static boolean update(int id, String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+        Produto p = new Produto(id, nome, valor, descricao, categoria, filial, habilitado);
         ProdutoDAO dao = new ProdutoDAO();
         return dao.update(p);
     }
@@ -31,6 +31,11 @@ public class ProdutoController {
     public static Produto searchID(int id) {
         ProdutoDAO dao = new ProdutoDAO();
         return dao.searchID(id);
+    }
+
+    public static Produto searchEstoqueID(String nome, int quantidade) {
+        ProdutoDAO dao = new ProdutoDAO();
+        return dao.searchEstoqueID(nome, quantidade);
     }
 
     public static List<Produto> listAll() {

@@ -269,11 +269,14 @@
                     <br>
                     <br>
 
-                    <label><b>Filial:*</b></label>
-                    <select class="text" name="filial" value="${funcionario.filial}" style="width: 200px; height: 25px">
-                        <option>Filial 1</option>
-                        <option>Filial 2</option>
-                        <option>Filial 3</option>
+
+                    <label>Filial:</label>
+                    <select style="width: 50px; height: 20px" name="filial">
+                        <c:forEach var="funcio" items="${filial}">
+                            <option
+                                value="${funcio.id}">${funcio.nome}
+                            </option>
+                        </c:forEach>
                     </select>
 
                     &nbsp;

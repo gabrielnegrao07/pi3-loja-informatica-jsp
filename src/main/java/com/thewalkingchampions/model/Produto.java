@@ -13,20 +13,17 @@ public class Produto {
 
     private int id;
     private String nome;
-    private int quantidade;
     private float valor;
     private String descricao;
     private int categoria;
     private int filial;
     private boolean habilitado;
 
-    public Produto() 
-    {
+    public Produto() {
     }
 
-    public Produto(String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+    public Produto(String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
         this.nome = nome;
-        this.quantidade = quantidade;
         this.valor = valor;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -34,10 +31,9 @@ public class Produto {
         this.habilitado = habilitado;
     }
 
-    public Produto(int id, String nome, int quantidade, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+    public Produto(int id, String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
         this.id = id;
         this.nome = nome;
-        this.quantidade = quantidade;
         this.valor = valor;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -59,14 +55,6 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
     }
 
     public float getValor() {

@@ -1,8 +1,11 @@
 package com.thewalkingchampions.servlet.Funcionario;
 
+import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.FuncionarioController;
+import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Funcionario;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +27,11 @@ public class UpdateFuncionario extends HttpServlet {
                 String id = request.getParameter("id");
 
                 Funcionario funcionario = FuncionarioController.searchID(Integer.parseInt(id));
+                List<Filial> filial = FilialController.listAll();
 
                 request.setAttribute("funcionario", funcionario);
+                request.setAttribute("filial", filial);
+
                 pagina = "updateFuncionario.jsp";
 
             }
@@ -85,13 +91,14 @@ public class UpdateFuncionario extends HttpServlet {
 
         request.setAttribute("metodoHttp", "POST");
 
-        boolean cond = FuncionarioController.update(Integer.parseInt(id), nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, filial, cargo, status);
+        boolean cond = FuncionarioController.update(Integer.parseInt(id), nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, Integer.parseInt(filial), cargo, status);
 
         if (cond == true) {
             msg = "Alteração realizada com sucesso";
         } else {
             msg = "Erro ao executar a alteração";
         }
+
         request.setAttribute("msg", msg);
 
         RequestDispatcher dispatcher

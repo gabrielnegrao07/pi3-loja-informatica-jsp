@@ -22,15 +22,14 @@ public class ProdutoDAO {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO PRODUTO(NOME, QUANTIDADE, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO PRODUTO(NOME, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?);");
 
             stmt.setString(1, produto.getNome());
-            stmt.setInt(2, produto.getQuantidade());
-            stmt.setFloat(3, produto.getValor());
-            stmt.setString(4, produto.getDescricao());
-            stmt.setInt(5, produto.getCategoria());
-            stmt.setInt(6, produto.getFilial());
-            stmt.setBoolean(7, produto.isHabilitado());
+            stmt.setFloat(2, produto.getValor());
+            stmt.setString(3, produto.getDescricao());
+            stmt.setInt(4, produto.getCategoria());
+            stmt.setInt(5, produto.getFilial());
+            stmt.setBoolean(6, produto.isHabilitado());
 
             stmt.executeUpdate();
 
@@ -57,7 +56,6 @@ public class ProdutoDAO {
 
                 produto.setId(rs.getInt("ID"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setQuantidade(rs.getInt("QUANTIDADE"));
                 produto.setValor(rs.getFloat("VALOR"));
                 produto.setDescricao(rs.getString("DESCRICAO"));
                 produto.setCategoria(rs.getInt("CATEGORIA"));
@@ -92,7 +90,6 @@ public class ProdutoDAO {
 
                 produto.setId(rs.getInt("ID"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setQuantidade(rs.getInt("QUANTIDADE"));
                 produto.setValor(rs.getFloat("VALOR"));
                 produto.setDescricao(rs.getString("DESCRICAO"));
                 produto.setCategoria(rs.getInt("CATEGORIA"));
@@ -126,13 +123,37 @@ public class ProdutoDAO {
 
                 produto.setId(rs.getInt("ID"));
                 produto.setNome(rs.getString("NOME"));
-                produto.setQuantidade(rs.getInt("QUANTIDADE"));
                 produto.setValor(rs.getFloat("VALOR"));
                 produto.setDescricao(rs.getString("DESCRICAO"));
                 produto.setCategoria(rs.getInt("CATEGORIA"));
                 produto.setFilial(rs.getInt("FILIAL"));
                 produto.setHabilitado(rs.getBoolean("HABILITADO"));
 
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            Database.closeConnection(connection, stmt, rs);
+        }
+        return produto;
+    }
+
+    public Produto searchEstoqueID(String nome, int filial) {
+        Connection connection = Database.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        Produto produto = new Produto();
+
+        try {
+            stmt = connection.prepareStatement("SELECT ID FROM PRODUTO WHERE NOME LIKE ? AND FILIAL LIKE ?;");
+            stmt.setString(1, nome);
+            stmt.setInt(2, filial);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                produto.setId(rs.getInt("ID"));
             }
 
         } catch (SQLException ex) {
@@ -150,16 +171,15 @@ public class ProdutoDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE PRODUTO SET NOME = ?, QUANTIDADE = ?, VALOR = ?, DESCRICAO = ?, CATEGORIA = ?, FILIAL = ?, HABILITADO = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE PRODUTO SET NOME = ?, VALOR = ?, DESCRICAO = ?, CATEGORIA = ?, FILIAL = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, produto.getNome());
-            stmt.setInt(2, produto.getQuantidade());
-            stmt.setFloat(3, produto.getValor());
-            stmt.setString(4, produto.getDescricao());
-            stmt.setInt(5, produto.getCategoria());
-            stmt.setInt(6, produto.getFilial());
-            stmt.setBoolean(7, produto.isHabilitado());
-            stmt.setInt(8, produto.getId());
+            stmt.setFloat(2, produto.getValor());
+            stmt.setString(3, produto.getDescricao());
+            stmt.setInt(4, produto.getCategoria());
+            stmt.setInt(5, produto.getFilial());
+            stmt.setBoolean(6, produto.isHabilitado());
+            stmt.setInt(7, produto.getId());
             stmt.executeUpdate();
 
             cond = true;

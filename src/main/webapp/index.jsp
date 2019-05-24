@@ -35,7 +35,7 @@
                         </li>
                         <li><a href="#">ESTOQUE</a>
                             <ul>
-                                <li><a href="#">CONSULTAR ESTOQUE</a></li>
+                                <li><a OnClick="parent.location.href = 'SearchEstoque'">CONSULTAR ESTOQUE</a></li>
                             </ul>
                         </li>
                         <li><a href="#">RELATORIOS</a>
@@ -47,7 +47,7 @@
                         </li>
                         <li><a href="#">FUNCIONARIOS</a>
                             <ul>
-                                <li><a href="saveFuncionario.jsp">INCLUIR FUNCIONARIOS</a></li>
+                                <li><a href="SaveFuncionario?action=salva">INCLUIR FUNCIONARIOS</a></li>
                                 <li><a OnClick="parent.location.href = 'SearchFuncionario'">CONSULTAR FUNCIONARIO</a></li>
                             </ul>
                         </li>

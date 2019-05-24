@@ -65,7 +65,7 @@
             <div class="formulario">
                 <form autocomplete="off" action="UpdateProduto" method="post">
                     <input type="hidden" name="id"  value="${produto.id}" style="width: 300px; height: 20px">
-                    
+
                     <label>Nome do Produto:</label>
                     <input class="text" type="text" name="nome" value="${produto.nome}" style="width: 300px; height: 20px">
 
@@ -73,8 +73,6 @@
                     &nbsp;
                     &nbsp;
 
-                    <label>Quantidade:</label>
-                    <input class="text" type="text" name="quantidade" value="${produto.quantidade}" style="width: 220px; height: 20px">
 
                     &nbsp;
                     &nbsp;
@@ -103,14 +101,13 @@
                     <br>
                     <br>
 
-
-
                     <label>Categoria:</label>
-                    <select style="width: 50px; height: 20px" class="text" nome ="categoria" value="${produto.categoria}">
-                        <option>Cat1</option>
-                        <option>Cat2</option>
-                        <option>Cat3</option>
-                        <option>Cat4</option>
+                    <select style="width: 50px; height: 20px" name="categoria">
+                        <c:forEach var="cat" items="${categoria}">
+                            <option
+                                value="${cat.id}">${cat.nome}
+                            </option>
+                        </c:forEach>
                     </select>
 
                     &nbsp;
@@ -118,6 +115,20 @@
                     &nbsp;
                     &nbsp;
 
+
+                    <label>Filial:</label>
+                    <select style="width: 50px; height: 20px" name="filial">
+                        <c:forEach var="fil" items="${filial}">
+                            <option
+                                value="${fil.id}">${fil.nome}
+                            </option>
+                        </c:forEach>
+                    </select>
+
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
 
                     <label>Disponível:</label>
                     <select style="width: 50px; height: 20px" class="text"  nome="habilitado" value="${produto.habilitado}">

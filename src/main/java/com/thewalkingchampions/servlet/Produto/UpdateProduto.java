@@ -69,21 +69,21 @@ public class UpdateProduto extends HttpServlet {
         request.setAttribute("Habilitado", habilitado);
 
         request.setAttribute("metodoHttp", "POST");
-        
+
         boolean status = false;
-        
+
         if (habilitado.equals("ATIVO")) {
             status = true;
         }
 
-        boolean cond = ProdutoController.update(Integer.parseInt(id), nome, Integer.parseInt(quantidade), Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
+        boolean cond = ProdutoController.update(Integer.parseInt(id), nome, Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
 
         if (cond == true) {
             msg = "Alteração realizada com sucesso";
         } else {
             msg = "Erro ao executar a alteração";
         }
-        
+
         request.setAttribute("msg", msg);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("updateCliente.jsp");

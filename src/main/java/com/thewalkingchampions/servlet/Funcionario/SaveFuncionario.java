@@ -1,7 +1,10 @@
 package com.thewalkingchampions.servlet.Funcionario;
 
+import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.FuncionarioController;
+import com.thewalkingchampions.model.Filial;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,9 +22,21 @@ public class SaveFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher
-                = request.getRequestDispatcher("saveFuncionario.jsp");
-        dispatcher.forward(request, response);
+
+        String acao = request.getParameter("action");
+        switch (acao) {
+            case "salva": {
+
+                List<Filial> filial = FilialController.listAll();
+
+                request.setAttribute("filial", filial);
+
+                RequestDispatcher dispatcher
+                        = request.getRequestDispatcher("saveFuncionario.jsp");
+                dispatcher.forward(request, response);
+
+            }
+        }
     }
 
     @Override
@@ -68,7 +83,7 @@ public class SaveFuncionario extends HttpServlet {
             status = true;
         }
 
-        FuncionarioController.save(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, filial, cargo, status);
+        FuncionarioController.save(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular, Integer.parseInt(filial), cargo, status);
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("index.jsp");

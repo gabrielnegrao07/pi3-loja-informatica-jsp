@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Johnathan
  */
+
 public class FuncionarioDao {
 
     public void save(Funcionario funcionario) {
@@ -40,7 +41,7 @@ public class FuncionarioDao {
             stmt.setString(11, funcionario.getEmail());
             stmt.setString(12, funcionario.getTelefone());
             stmt.setString(13, funcionario.getCelular());
-            stmt.setString(14, funcionario.getFilial());
+            stmt.setInt(14, funcionario.getFilial());
             stmt.setString(15, funcionario.getCargo());
             stmt.setBoolean(16, funcionario.isHabilitado());
 
@@ -81,7 +82,7 @@ public class FuncionarioDao {
                 funcionario.setEmail(rs.getString("EMAIL"));
                 funcionario.setTelefone(rs.getString("TELEFONE"));
                 funcionario.setCelular(rs.getString("CELULAR"));
-                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setFilial(rs.getInt("FILIAL"));
                 funcionario.setCargo(rs.getString("CARGO"));
                 funcionario.setHabilitado(rs.getBoolean("HABILITADO"));
 
@@ -124,7 +125,7 @@ public class FuncionarioDao {
                 funcionario.setEmail(rs.getString("EMAIL"));
                 funcionario.setTelefone(rs.getString("TELEFONE"));
                 funcionario.setCelular(rs.getString("CELULAR"));
-                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setFilial(rs.getInt("FILIAL"));
                 funcionario.setCargo(rs.getString("CARGO"));
                 funcionario.setHabilitado(rs.getBoolean("HABILITADO"));
 
@@ -167,7 +168,7 @@ public class FuncionarioDao {
                 funcionario.setEmail(rs.getString("EMAIL"));
                 funcionario.setTelefone(rs.getString("TELEFONE"));
                 funcionario.setCelular(rs.getString("CELULAR"));
-                funcionario.setFilial(rs.getString("FILIAL"));
+                funcionario.setFilial(rs.getInt("FILIAL"));
                 funcionario.setBairro(rs.getString("BAIRRO"));
 
             }
@@ -202,7 +203,7 @@ public class FuncionarioDao {
             stmt.setString(11, funcionario.getEmail());
             stmt.setString(12, funcionario.getTelefone());
             stmt.setString(13, funcionario.getCelular());
-            stmt.setString(14, funcionario.getFilial());
+            stmt.setInt(14, funcionario.getFilial());
             stmt.setString(15, funcionario.getCargo());
             stmt.setBoolean(16, funcionario.isHabilitado());
             stmt.setInt(17, funcionario.getId());

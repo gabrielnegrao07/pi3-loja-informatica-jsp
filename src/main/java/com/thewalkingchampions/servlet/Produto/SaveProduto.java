@@ -3,6 +3,7 @@ package com.thewalkingchampions.servlet.Produto;
 import com.thewalkingchampions.controller.CategoriaController;
 import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.ProdutoController;
+import com.thewalkingchampions.controller.EstoqueController;
 import com.thewalkingchampions.model.Categoria;
 import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Produto;
@@ -59,14 +60,18 @@ public class SaveProduto extends HttpServlet {
         request.setAttribute("categoria", categoria);
         request.setAttribute("filial", filial);
         request.setAttribute("habilitado", habilitado);
-        
+
         boolean status = false;
-        
+
         if (habilitado.equals("habilitado")) {
             status = true;
         }
 
-        ProdutoController.save(nome, Integer.parseInt(quantidade), Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
+        ProdutoController.save(nome, Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
+
+        Produto p = ProdutoController.searchEstoqueID(nome, Integer.parseInt(filial));
+
+        EstoqueController.save(p.getId(), Integer.parseInt(quantidade));
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("index.jsp");
