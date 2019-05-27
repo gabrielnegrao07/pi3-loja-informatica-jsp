@@ -1,10 +1,20 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.thewalkingchampions.model;
 
 import java.sql.Date;
 
-public class Cliente {
+/**
+ *
+ * @author Johnathan
+ */
+public class Pedido {
 
     private int id;
+    private int idCliente;
     private String nome;
     private String cpf;
     private String rg;
@@ -18,29 +28,25 @@ public class Cliente {
     private String email;
     private String telefone;
     private String celular;
+    private float valorTotal;
+    private float desconto;
+    private float valor;
+    private Date data;
 
-    public Cliente() {
+    public Pedido() {
 
     }
 
-    public Cliente(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.endereco = endereco;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.cidade = cidade;
-        this.bairro = bairro;
-        this.estado = estado;
-        this.cep = cep;
-        this.email = email;
-        this.telefone = telefone;
-        this.celular = celular;
+    public Pedido(int idCliente, float valorTotal, float desconto, float valor) {
+        this.idCliente = idCliente;
+        this.valorTotal = valorTotal;
+        this.desconto = desconto;
+        this.valor = valor;
     }
 
-    public Cliente(int id, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular) {
+    public Pedido(int id, int idCliente, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, float valorTotal, float desconto, float valor) {
         this.id = id;
+        this.idCliente = idCliente;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
@@ -54,6 +60,29 @@ public class Cliente {
         this.email = email;
         this.telefone = telefone;
         this.celular = celular;
+        this.valorTotal = valorTotal;
+        this.desconto = desconto;
+        this.valor = valor;
+    }
+
+    public Pedido(int idCliente, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular, float valorTotal, float desconto, float valor) {
+        this.idCliente = idCliente;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.rg = rg;
+        this.endereco = endereco;
+        this.numero = numero;
+        this.complemento = complemento;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.estado = estado;
+        this.cep = cep;
+        this.email = email;
+        this.telefone = telefone;
+        this.celular = celular;
+        this.valorTotal = valorTotal;
+        this.desconto = desconto;
+        this.valor = valor;
     }
 
     public int getId() {
@@ -62,6 +91,14 @@ public class Cliente {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNome() {
@@ -166,5 +203,37 @@ public class Cliente {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+    public float getValor() {
+        return valor;
+    }
+
+    public void setValor(float valor) {
+        this.valor = valor;
+    }
+
+    public float getDesconto() {
+        return desconto;
+    }
+
+    public void setDesconto(float desconto) {
+        this.desconto = desconto;
+    }
+
+    public float getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(float valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 }
