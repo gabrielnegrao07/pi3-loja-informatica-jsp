@@ -25,13 +25,12 @@ public class PedidoDAO {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO PEDIDO(ID_CLIENTE, VALORTOTAL, DESCONTO, VALOR, DATA) VALUES (?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO PEDIDO(ID_CLIENTE, VALORTOTAL, DESCONTO, VALOR) VALUES (?,?,?,?);");
 
             stmt.setInt(1, pedido.getIdCliente());
             stmt.setFloat(2, pedido.getValorTotal());
             stmt.setFloat(3, pedido.getDesconto());
             stmt.setFloat(4, pedido.getValor());
-            stmt.setDate(5, pedido.getData());
 
             stmt.executeUpdate();
 

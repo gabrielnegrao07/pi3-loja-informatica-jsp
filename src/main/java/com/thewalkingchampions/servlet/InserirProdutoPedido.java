@@ -5,6 +5,7 @@ import com.thewalkingchampions.controller.CategoriaController;
 import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.ProdutoController;
 import com.thewalkingchampions.model.Categoria;
+import com.thewalkingchampions.model.Cliente;
 import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class InserirProdutoPedido extends HttpServlet {
                 ArrayList retornoLista = (ArrayList) session.getAttribute("lista");
                 retornoLista = new AdicionaItens().AdicionaItens(produto, retornoLista);
 
-                
+
                 List<Produto> produtos = retornoLista;
                 session.setAttribute("lista", retornoLista);
                 request.setAttribute("search", produtos);

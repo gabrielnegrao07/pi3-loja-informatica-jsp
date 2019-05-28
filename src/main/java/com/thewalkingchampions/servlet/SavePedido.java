@@ -36,6 +36,7 @@ public class SavePedido extends HttpServlet {
             case "savar": {
 
                 List<Produto> produto = ProdutoController.listAll();
+                Cliente cliente = new Cliente();
 
                 String id = request.getParameter("id");
                 Produto p = new Produto();
@@ -46,11 +47,13 @@ public class SavePedido extends HttpServlet {
 
                 retornoLista = new AdicionaItens().AdicionaItens(p, retornoLista);
 
+                List<Produto> list = retornoLista;
+
+                request.setAttribute("search", list);
+
+                request.setAttribute("cliente", cliente);
                 request.setAttribute("produto", produto);
                 session.setAttribute("lista", retornoLista);
-                request.setAttribute("lista", retornoLista);
-
-                response.sendRedirect("savePedido.jsp");
 
                 RequestDispatcher dispatcher
                         = request.getRequestDispatcher("savePedido.jsp");
@@ -64,24 +67,25 @@ public class SavePedido extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String idCliente = request.getParameter("idCliente");
+        String quantidade[] = request.getParameterValues("quantidade");
 
         request.setAttribute("metodoHttp", "POST");
         request.setAttribute("idCliente", idCliente);
+        request.setAttribute("quantidade", quantidade);
 
+        PedidoController.save(Integer.parseInt("1"), Float.parseFloat("0"), Float.parseFloat("0"), Float.parseFloat("0"));
 
-        SimpleDateFormat format = new SimpleDateFormat();
-        Date date = new Date();
-
-        PedidoController.save(Integer.parseInt(idCliente), Float.parseFloat("0"), Float.parseFloat("0"), Float.parseFloat("0"));
-
-        Pedido p = PedidoController.searchID(Integer.parseInt(idCliente));
+        Pedido pedido = PedidoController.searchID(Integer.parseInt("1"));
         Produto produto = new Produto();
+
         HttpSession session = request.getSession(true);
         ArrayList retornoLista = (ArrayList) session.getAttribute("lista");
         retornoLista = new AdicionaItens().AdicionaItens(produto, retornoLista);
 
-        for (Iterator it = retornoLista.iterator(); it.hasNext();) {
-            PedidoItensController.save(p.getId(), (int) retornoLista.get(produto.getId()), 0, 0);
+        List<Produto> lista = retornoLista;
+
+        for (int i = 0; i < lista.size(); i++) {
+            PedidoItensController.save(pedido.getId(), lista.get(i).getId(), lista.get(i).getValor(), Integer.parseInt(quantidade[i]));
         }
 
         RequestDispatcher dispatcher

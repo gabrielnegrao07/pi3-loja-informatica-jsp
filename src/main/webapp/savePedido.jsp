@@ -1,10 +1,11 @@
-<%-- 
-    Document   : savePedido
-    Created on : 25/05/2019, 15:44:31
-    Author     : Johnathan
---%>
-
+<%@page import="com.thewalkingchampions.controller.ClienteController"%>
+<%@page import="com.thewalkingchampions.dao.ClienteDAO"%>
+<%@page import="com.thewalkingchampions.model.Cliente"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -75,25 +76,18 @@
             <br>
             <br>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Valor</th>
-                    <th colspan="1">Ação</th>
-                </tr>
-
-                <c:forEach var="produto" items="${search}" >
-                    <tr>
-                        <td><c:out value="${produto.id}"/></td>
-                    <td><c:out value="${produto.nome}"/></td>
-                    <td><c:out value="${produto.valor}"/></td>
-                    </tr>                  
-                </c:forEach>
-            </table>
+            <c:forEach var="produto" items="${search}">
+                <label>ID:</label>
+                <input type="text" name="id" value="${produto.id}">
+                <label>Nome:</label>
+                <input type="text" name="nomePedido" value="${produto.nome}">
+                <label>Valor:</label>
+                <input type="text" name="valor" value="${produto.valor}">
+                <label>Quantidade:</label>
+                <input type="text" name="quantidade">
+                <br>
+            </c:forEach>
             <button class="buttomConfirmar" type="submit" style="width: 150px; height: 30px">Finalizar</button>
         </form>
-
-
     </body>
 </html>

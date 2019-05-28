@@ -1,7 +1,7 @@
 package auxilio;
 
-
 import com.thewalkingchampions.model.Produto;
+import com.thewalkingchampions.model.Cliente;
 import java.util.ArrayList;
 
 /*
@@ -21,6 +21,16 @@ public class AdicionaItens {
         }
 
         lista.add(p);
+
+        return lista;
+    }
+
+    public ArrayList clientePedido(Cliente c, ArrayList lista) {
+        if (lista == null) {
+            lista = new ArrayList();
+        }
+
+        lista.add(c);
 
         return lista;
     }

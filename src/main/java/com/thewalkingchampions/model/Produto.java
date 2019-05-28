@@ -18,6 +18,7 @@ public class Produto {
     private int categoria;
     private int filial;
     private boolean habilitado;
+    private int estoque;
 
     public Produto() {
     }
@@ -95,5 +96,13 @@ public class Produto {
 
     public void setHabilitado(boolean habilitado) {
         this.habilitado = habilitado;
+    }
+
+    public int getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
 }
