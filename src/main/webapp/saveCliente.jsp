@@ -87,7 +87,7 @@
 
             <form autocomplete="off" action="SaveCliente" method="post">
                 <div class="formulario">
-                    <div class="resposta" style="width: 50%; height: 30px">
+                    <div>
                         ${msg}
                     </div>
                     <br>

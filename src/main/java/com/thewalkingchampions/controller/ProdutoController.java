@@ -6,10 +6,10 @@ import java.util.List;
 
 public class ProdutoController {
 
-    public static void save(String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
+    public static boolean save(String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {
         Produto p = new Produto(nome, valor, descricao, categoria, filial, habilitado);
         ProdutoDAO dao = new ProdutoDAO();
-        dao.save(p);
+        return dao.save(p);
     }
 
     public static boolean update(int id, String nome, float valor, String descricao, int categoria, int filial, boolean habilitado) {

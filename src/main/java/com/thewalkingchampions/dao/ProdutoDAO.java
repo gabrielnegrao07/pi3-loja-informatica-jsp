@@ -18,9 +18,10 @@ import java.util.logging.Logger;
 
 public class ProdutoDAO {
 
-    public void save(Produto produto) {
+    public boolean save(Produto produto) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
+        boolean cond;
         try {
             stmt = connection.prepareStatement("INSERT INTO PRODUTO(NOME, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?);");
 
@@ -32,12 +33,15 @@ public class ProdutoDAO {
             stmt.setBoolean(6, produto.isHabilitado());
 
             stmt.executeUpdate();
-
+            cond = true;
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public List<Produto> listAll() {

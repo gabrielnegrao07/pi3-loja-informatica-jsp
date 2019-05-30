@@ -25,7 +25,7 @@ public class SaveProduto extends HttpServlet {
 
         String acao = request.getParameter("action");
         switch (acao) {
-            case "savar": {
+            case "salvar": {
 
                 List<Filial> filial = FilialController.listAll();
                 List<Categoria> categoria = CategoriaController.listAll();
@@ -44,6 +44,8 @@ public class SaveProduto extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String msg;
+
         String nome = request.getParameter("nome");
         String quantidade = request.getParameter("quantidade");
         String valor = request.getParameter("valor");
@@ -67,11 +69,19 @@ public class SaveProduto extends HttpServlet {
             status = true;
         }
 
-        ProdutoController.save(nome, Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
+        boolean cond = ProdutoController.save(nome, Float.parseFloat(valor), descricao, Integer.parseInt(categoria), Integer.parseInt(filial), status);
 
         Produto p = ProdutoController.searchEstoqueID(nome, Integer.parseInt(filial));
 
         EstoqueController.save(p.getId(), Integer.parseInt(quantidade));
+
+        if (cond == true) {
+            msg = "Cadastro realizado com sucesso";
+        } else {
+            msg = "Erro ao executar o Cadastro";
+        }
+
+        request.setAttribute("msg", msg);
 
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("index.jsp");

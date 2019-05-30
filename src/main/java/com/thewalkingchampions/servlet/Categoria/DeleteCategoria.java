@@ -27,7 +27,7 @@ public class DeleteCategoria extends HttpServlet {
         CategoriaController.delete(Integer.parseInt(id));
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchCategoria.jsp");
         dispatcher.forward(request, response);
     }
 }

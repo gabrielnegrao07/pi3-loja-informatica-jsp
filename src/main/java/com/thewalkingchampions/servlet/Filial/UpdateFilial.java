@@ -84,11 +84,11 @@ public class UpdateFilial extends HttpServlet {
         } else {
             msg = "Erro ao executar a alteração";
         }
-        
+
         request.setAttribute("msg", msg);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("updateFilial.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchFilial.jsp");
         dispatcher.forward(request, response);
     }
 }

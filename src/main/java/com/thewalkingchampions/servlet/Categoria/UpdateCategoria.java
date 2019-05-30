@@ -50,7 +50,7 @@ public class UpdateCategoria extends HttpServlet {
         CategoriaController.update(Integer.parseInt(id), nome);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("updateCategoria.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchCategoria.jsp");
         dispatcher.forward(request, response);
     }
 }

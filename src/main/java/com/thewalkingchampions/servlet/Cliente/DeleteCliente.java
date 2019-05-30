@@ -19,12 +19,21 @@ public class DeleteCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String msg;
         String id = request.getParameter("id");
 
-        ClienteController.delete(Integer.parseInt(id));
+        boolean cond = ClienteController.delete(Integer.parseInt(id));
+
+        if (cond == true) {
+            msg = "Excluido com sucesso";
+        } else {
+            msg = "Erro ao excluir";
+        }
+
+        request.setAttribute("msg", msg);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchCliente.jsp");
         dispatcher.forward(request, response);
     }
 }

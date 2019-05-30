@@ -13,9 +13,10 @@ import java.util.logging.Logger;
 
 public class ClienteDAO {
 
-    public void save(Cliente cliente) {
+    public boolean save(Cliente cliente) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
+        boolean cond;
         try {
             stmt = connection.prepareStatement("INSERT INTO CLIENTE(NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, cliente.getNome());
@@ -33,12 +34,15 @@ public class ClienteDAO {
             stmt.setString(13, cliente.getCelular());
 
             stmt.executeUpdate();
-
+            cond = true;
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 
     public List<Cliente> listAll() {
@@ -197,9 +201,10 @@ public class ClienteDAO {
         return cond;
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
+        boolean cond;
 
         try {
             stmt = connection.prepareStatement("DELETE FROM CLIENTE WHERE ID = ?");
@@ -207,10 +212,14 @@ public class ClienteDAO {
             stmt.setInt(1, id);
 
             stmt.executeUpdate();
+            cond = true;
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            cond = false;
         } finally {
             Database.closeConnection(connection, stmt);
         }
+
+        return cond;
     }
 }

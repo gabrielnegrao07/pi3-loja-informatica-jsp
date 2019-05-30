@@ -82,9 +82,9 @@ public class UpdateCliente extends HttpServlet {
             msg = "Erro ao executar a alteração";
         }
         request.setAttribute("msg", msg);
-        
+
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("updateCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchCliente.jsp");
         dispatcher.forward(request, response);
     }
 }

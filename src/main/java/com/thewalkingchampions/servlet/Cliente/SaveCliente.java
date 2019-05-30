@@ -23,6 +23,9 @@ public class SaveCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        String msg;
+
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");
         String rg = request.getParameter("rg");
@@ -52,10 +55,18 @@ public class SaveCliente extends HttpServlet {
         request.setAttribute("celular", celular);
         request.setAttribute("email", email);
 
-        ClienteController.save(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular);
+        boolean cond = ClienteController.save(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular);
+
+        if (cond == true) {
+            msg = "Cadastro realizado com sucesso";
+        } else {
+            msg = "Erro ao executar o Cadastro";
+        }
+
+        request.setAttribute("msg", msg);
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("saveCliente.jsp");
         dispatcher.forward(request, response);
     }
 

@@ -6,73 +6,109 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" type="text/css" href="CSS\estiloIndex.css">
+        <link rel="stylesheet" type="text/css" href="CSS\estiloList.css">
     <head>
     <body>	
         <div class="container">
             <header>
                 <h1>DASHBOARD</h1>
-                <nav>
-                    <ul id=opcao>
-                        <li><a href="#">DASHBOARD</a></li>
-                        <li><a href="#">PEDIDO</a>
-                            <ul>
-                                <li><a href="#">INCLUIR PEDIDO</a></li>
-                                <li><a OnClick="parent.location.href = 'SearchCategoria'">CONSULTAR PEDIDO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">CLIENTE</a>
-                            <ul>
-                                <li><a href="saveCliente.jsp">INCLUIR CLIENTE</a></li>
-                                <li><a OnClick="parent.location.href = 'SearchCliente'">CONSULTAR CLIENTE</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">PRODUTO</a>
-                            <ul>
-                                <li><a href="SaveProduto?action=savar">INCLUIR PRODUTO</a></li>
-                                <li><a OnClick="parent.location.href = 'SearchProduto'">CONSULTAR PRODUTO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">ESTOQUE</a>
-                            <ul>
-                                <li><a OnClick="parent.location.href = 'SearchEstoque'">CONSULTAR ESTOQUE</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">RELATORIOS</a>
-                            <ul>
-                                <li><a href="#">SUB 1</a></li>
-                                <li><a href="#">SUB 2</a></li>
-                                <li><a href="#">SUB 3</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">FUNCIONARIOS</a>
-                            <ul>
-                                <li><a href="SaveFuncionario?action=salva">INCLUIR FUNCIONARIOS</a></li>
-                                <li><a OnClick="parent.location.href = 'SearchFuncionario'">CONSULTAR FUNCIONARIO</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">FILIAIS</a>
-                            <ul>
-                                <li><a a OnClick="parent.location.href = 'SearchFilial'">INCLUIR FILIAIS</a></li>
-                                <li><a href="#">CONSULTAR FILIAIS</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">SUPORTE</a>
-                            <ul>
-                                <li><a href="#">ABRIR CHAMADO</a></li>
-                                <li><a href="#">CONSULTAR</a></li>
-                            </ul>
-                        </li>
-                    </ul>					
-                </nav>	
+                <div class="sidenav">
+                    <button class="dropdown-btn" href="#">DASHBOARD</button>
+
+                    <button class="dropdown-btn">PEDIDO 
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR PEDIDO</a>
+                        <a href="#">CONSULTAR PEDIDO</a>
+                    </div>
+
+                    <button class="dropdown-btn">CLIENTE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="saveCliente.jsp">INCLUIR CLIENTE</a>
+                        <a OnClick="parent.location.href = 'SearchCliente'">CONSULTAR CLIENTE</a>
+                    </div>
+
+                    <button class="dropdown-btn">PRODUTO
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a a href="SaveProduto?action=salvar">INCLUIR PRODUTO</a>
+                        <a OnClick="parent.location.href = 'SearchProduto'">CONSULTAR PRODUTO</a>
+                        <a href="saveCategoria.jsp">INCLUIR CATEGORIA</a>
+                        <a OnClick="parent.location.href = 'SearchCategoria'">CONSULTAR CATEGORIA</a>
+                    </div>
+
+                    <button class="dropdown-btn">ESTOQUE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a OnClick="parent.location.href = 'SearchEstoque'">CONSULTAR ESTOQUE</a>
+                    </div>
+
+                    <button class="dropdown-btn">RELATORIOS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">SUB 1</a>
+                        <a href="#">SUB 2</a>
+                        <a href="#">SUB 3</a>
+                    </div>
+
+                    <button class="dropdown-btn">FUNCIONARIOS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">INCLUIR FUNCIONARIOS</a>
+                        <a href="#">CONSULTAR PRODUTO</a>
+                    </div>
+
+                    <button class="dropdown-btn">FILIAIS
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="saveFilial.jsp">INCLUIR FILIAL</a>
+                        <a OnClick="parent.location.href = 'SearchFilial'">CONSULTAR FILIAIS</a>
+                    </div>
+
+                    <button class="dropdown-btn">SUPORTE
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-container">
+                        <a href="#">ABRIR CHAMADO</a>
+                        <a href="#">CONSULTAR</a>
+                    </div>
+                </div>  
             </header>
 
-            <div class="index">
 
+            <div>
+                <input  type="submit" name="" value="">
             </div>
+
+
         </div>
         <footer>
             <h2>TADES Inc. 2019</h2>
         </footer>
+
+        <script>
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+
+            for (i = 0; i < dropdown.length; i++) {
+                dropdown[i].addEventListener("click", function () {
+                    this.classList.toggle("active");
+                    var dropdownContent = this.nextElementSibling;
+                    if (dropdownContent.style.display === "block") {
+                        dropdownContent.style.display = "none";
+                    } else {
+                        dropdownContent.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

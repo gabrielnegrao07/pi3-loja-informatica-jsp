@@ -6,10 +6,10 @@ import java.util.List;
 
 public class ClienteController {
 
-    public static void save(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular) {
+    public static boolean save(String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular) {
         Cliente cliente = new Cliente(nome, cpf, rg, endereco, numero, complemento, cidade, bairro, estado, cep, email, telefone, celular);
         ClienteDAO dao = new ClienteDAO();
-        dao.save(cliente);
+        return dao.save(cliente);
     }
 
     public static boolean update(int id, String nome, String cpf, String rg, String endereco, String numero, String complemento, String cidade, String bairro, String estado, String cep, String email, String telefone, String celular) {
@@ -19,9 +19,9 @@ public class ClienteController {
         return cond;
     }
 
-    public static void delete(int id) {
+    public static boolean delete(int id) {
         ClienteDAO dao = new ClienteDAO();
-        dao.delete(id);
+        return dao.delete(id);
     }
 
     public static List<Cliente> search(String nome) {

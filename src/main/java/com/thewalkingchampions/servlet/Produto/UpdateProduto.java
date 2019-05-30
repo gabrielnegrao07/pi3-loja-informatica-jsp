@@ -86,7 +86,7 @@ public class UpdateProduto extends HttpServlet {
 
         request.setAttribute("msg", msg);
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("updateCliente.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchProduto.jsp");
         dispatcher.forward(request, response);
     }
 }

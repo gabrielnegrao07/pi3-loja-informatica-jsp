@@ -32,7 +32,7 @@ public class DeleteFilial extends HttpServlet {
             msg = "Erro ao excluir cliente selecionado";
         }
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchFilial.jsp");
         dispatcher.forward(request, response);
     }
 }

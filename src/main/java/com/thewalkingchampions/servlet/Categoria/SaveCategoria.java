@@ -35,7 +35,7 @@ public class SaveCategoria extends HttpServlet {
         boolean cond = CategoriaController.save(nome);
 
         if (cond == true) {
-            msg = "Filial cadastrada com sucesso";
+            msg = "Categoria cadastrada com sucesso";
         } else {
             msg = "Erro ao executar o cadastro";
         }

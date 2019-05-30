@@ -24,7 +24,7 @@ public class DeleteProduto extends HttpServlet {
         ProdutoController.delete(Integer.parseInt(idProduto));
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("/WEB-INF/jsp/searchProduto.jsp");
         dispatcher.forward(request, response);
     }
 }

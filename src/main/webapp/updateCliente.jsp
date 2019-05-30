@@ -85,14 +85,16 @@
                 </div>  
             </header>
 
-            <form autocomplete="off" action="SaveCliente" method="post">
+            <form autocomplete="off" action="UpdateCliente" method="POST">
                 <div class="formulario">
                     <div class="resposta" style="width: 50%; height: 30px">
                         ${msg}
                     </div>
+                    <input type="hidden" name="id" value="${cliente.id}">
                     <br>
                     <br>
                     <br>
+                    
                     <label><b>Nome:*</b></label>
                     <input class="text" type="text" name="nome" value="${cliente.nome}" style="width: 370px; height: 25px" required>
 

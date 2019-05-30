@@ -99,8 +99,12 @@
                 </div>
 
 
-                <div>
-                    <table>
+
+                <table>
+                    <div>
+                        <div class="resposta">
+                            ${msg}
+                        </div>
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
@@ -121,33 +125,33 @@
                             <form method="post" action="${pageContext.request.contextPath}/DeleteCliente">
                                 <td><button class="buttomDeletar" type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Delete</button></td>
                             </form>     
-                            <td><a href="UpdateCliente?action=upd&id=${cliente.id}"><button class="buttomUpdate" type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Update</button></a></td>
+                            <td><a href="UpdateCliente?action=upd&id=${cliente.id}"><button class="buttomUpdate" type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Atualizar</button></a></td>
                             </tr>                  
                         </c:forEach>
                         </form>
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
-        <footer>
-            <h2>TADES Inc. 2019</h2>
-        </footer>
+    </div>
+    <footer>
+        <h2>TADES Inc. 2019</h2>
+    </footer>
 
-        <script>
-            var dropdown = document.getElementsByClassName("dropdown-btn");
-            var i;
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
 
-            for (i = 0; i < dropdown.length; i++) {
-                dropdown[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var dropdownContent = this.nextElementSibling;
-                    if (dropdownContent.style.display === "block") {
-                        dropdownContent.style.display = "none";
-                    } else {
-                        dropdownContent.style.display = "block";
-                    }
-                });
-            }
-        </script>
-    </body>
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var dropdownContent = this.nextElementSibling;
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            });
+        }
+    </script>
+</body>
 </html>
