@@ -7,7 +7,6 @@ package com.thewalkingchampions.dao;
 
 import com.thewalkingchampions.connection.Database;
 import com.thewalkingchampions.model.Pedido;
-import com.thewalkingchampions.model.Produto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

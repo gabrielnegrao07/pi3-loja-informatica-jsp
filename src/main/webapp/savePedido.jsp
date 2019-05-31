@@ -11,6 +11,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+
+        <script>
+
+        </script>
     </head>
     <body>
         <form autocomplete="off" action="SavePedido" method="POST">
@@ -84,9 +88,10 @@
                 <label>Valor:</label>
                 <input type="text" name="valor" value="${produto.valor}">
                 <label>Quantidade:</label>
-                <input type="text" name="quantidade">
+                <input type="text" name="quantidade" onblur="parent.location.href = 'SavePedido'">
                 <br>
             </c:forEach>
+                
             <button class="buttomConfirmar" type="submit" style="width: 150px; height: 30px">Finalizar</button>
         </form>
     </body>

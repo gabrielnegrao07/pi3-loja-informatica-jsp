@@ -1,10 +1,6 @@
 package com.thewalkingchampions.servlet.Produto;
 
-import com.thewalkingchampions.controller.CategoriaController;
-import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.ProdutoController;
-import com.thewalkingchampions.model.Categoria;
-import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;
 import java.util.List;
@@ -26,7 +22,7 @@ public class SearchProduto extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Produto> produtos = ProdutoController.listAll();
-        
+
         request.setAttribute("search", produtos);
         RequestDispatcher dispatcher
                 = request.getRequestDispatcher("/WEB-INF/jsp/searchProduto.jsp");

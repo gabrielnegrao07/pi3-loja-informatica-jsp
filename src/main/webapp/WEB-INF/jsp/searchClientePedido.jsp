@@ -94,8 +94,7 @@
             <div>
 
                 <div>
-                    <input type="text" name="filtro" placeholder="Digite..." style="width: 2000px; height: 30px">
-                    <span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
+                    <input type="" name="" placeholder="">
                 </div>
 
 
@@ -114,7 +113,7 @@
                                 <td><c:out value="${cliente.id}"/></td>
                                 <td><c:out value="${cliente.nome}"/></td>
                                 <td><c:out value="${cliente.cpf}"/></td>   
-                                <td><a href="InserirClientePedido?action=upd&id=${cliente.id}"><button type="submit" value="${cliente.id}" name="id">Inserir</button></a></td>
+                                <td><a href="InserirClientePedido?action=upd&id=${cliente.id}"><button type="submit" value="${cliente.id}" name="id" style="width: 70px; height: 30px">Inserir</button></a></td>
                             </tr>                  
                         </c:forEach>
                         </form>

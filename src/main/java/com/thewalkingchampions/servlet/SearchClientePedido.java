@@ -1,7 +1,5 @@
 package com.thewalkingchampions.servlet;
 
-
-import com.thewalkingchampions.servlet.Cliente.*;
 import com.thewalkingchampions.controller.ClienteController;
 import com.thewalkingchampions.model.Cliente;
 import java.io.IOException;

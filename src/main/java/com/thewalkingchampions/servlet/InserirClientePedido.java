@@ -1,11 +1,9 @@
 package com.thewalkingchampions.servlet;
 
 import auxilio.AdicionaItens;
-import com.thewalkingchampions.servlet.Cliente.*;
 import com.thewalkingchampions.controller.ClienteController;
 import com.thewalkingchampions.model.Cliente;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,8 +25,14 @@ public class InserirClientePedido extends HttpServlet {
             case "upd": {
                 String id = request.getParameter("id");
 
-                Cliente cliente = ClienteController.searchID(Integer.parseInt(id));
+                Cliente c = ClienteController.searchID(Integer.parseInt(id));
 
+                HttpSession session = request.getSession(true);
+                Cliente retornoCliente = (Cliente) session.getAttribute("Cliente");
+                retornoCliente = new AdicionaItens().clientePedido(c, retornoCliente);
+
+                Cliente cliente = retornoCliente;
+                session.setAttribute("Cliente", retornoCliente);
                 request.setAttribute("cliente", cliente);
                 pagina = "savePedido.jsp";
             }

@@ -1,7 +1,5 @@
 package com.thewalkingchampions.model;
 
-import java.sql.Date;
-
 public class Cliente {
 
     private int id;

@@ -1,12 +1,8 @@
 package com.thewalkingchampions.servlet;
 
 import auxilio.AdicionaItens;
-import com.thewalkingchampions.controller.CategoriaController;
-import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.controller.ProdutoController;
-import com.thewalkingchampions.model.Categoria;
 import com.thewalkingchampions.model.Cliente;
-import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,14 +27,20 @@ public class InserirProdutoPedido extends HttpServlet {
             case "upd": {
                 String id = request.getParameter("id");
                 Produto produto = ProdutoController.searchID(Integer.parseInt(id));
-
                 HttpSession session = request.getSession(true);
+
+                Cliente c = new Cliente();
+
                 ArrayList retornoLista = (ArrayList) session.getAttribute("lista");
                 retornoLista = new AdicionaItens().AdicionaItens(produto, retornoLista);
 
+                Cliente retornoCliente = (Cliente) session.getAttribute("Cliente");
+                retornoCliente = new AdicionaItens().clientePedido(c, retornoCliente);
 
                 List<Produto> produtos = retornoLista;
+                Cliente cliente = retornoCliente;
                 session.setAttribute("lista", retornoLista);
+                request.setAttribute("cliente", cliente);
                 request.setAttribute("search", produtos);
 
                 pagina = "savePedido.jsp";
