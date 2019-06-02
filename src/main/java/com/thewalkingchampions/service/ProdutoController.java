@@ -1,4 +1,4 @@
-package com.thewalkingchampions.controller;
+package com.thewalkingchampions.service;
 
 import com.thewalkingchampions.dao.ProdutoDAO;
 import com.thewalkingchampions.model.Produto;

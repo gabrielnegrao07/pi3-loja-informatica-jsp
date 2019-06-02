@@ -1,9 +1,9 @@
 package com.thewalkingchampions.servlet;
 
 import auxilio.AdicionaItens;
-import com.thewalkingchampions.controller.ProdutoController;
-import com.thewalkingchampions.controller.PedidoController;
-import com.thewalkingchampions.controller.PedidoItensController;
+import com.thewalkingchampions.service.ProdutoController;
+import com.thewalkingchampions.service.PedidoController;
+import com.thewalkingchampions.service.PedidoItensController;
 import com.thewalkingchampions.model.Produto;
 import com.thewalkingchampions.model.Cliente;
 import com.thewalkingchampions.model.Pedido;

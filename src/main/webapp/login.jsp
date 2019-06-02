@@ -1,7 +1,7 @@
-<%@page import="com.thewalkingchampions.controller.LoginController"%>
-<%@page import="com.thewalkingchampions.dao.LoginDAO"%>
-<%@page import="com.thewalkingchampions.model.Login"%>
+<%@page import="com.thewalkingchampions.service.LoginService"%>
+<%@page import="com.thewalkingchampions.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <!DOCTYPE html>
@@ -19,25 +19,33 @@
                 <h1>Tades</h1>
             </header>
 
+
             <div id="logar">
+                
+                <c:if test="${msgErro != null}">
+                    <div class="erro"><c:out value="${msgErro}" /></div>
+                </c:if>
+
                 <table>
-                    <form action="${pageContext.request.contextPath}/SearchLoginOne" method="post">
+                    <form action="${pageContext.request.contextPath}/login" method="post">
                         <tr>
                             <td>
                                 <label><b>Login:</b></label>
-                                <input type="text" name="nome" value="${nome}" >
+                                <input type="text" name="username" />
+
 
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <label><b>Senha:</b></label>
-                                <input type="password" name="senha" value="${senha}" >
+                                <input type="password" name="senha" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input class="buttomEntra" type="submit" value="Entrar" style="width: 160px; height: 40px" OnClick="parent.location.href = 'index.jsp'">
+                                <input class="buttomEntra" type="submit" value="Entrar" style="width: 160px; height: 40px" >
+                                <!--<button type="submit">Enviar</button>-->
                             </td>
                         </tr>
                     </form>

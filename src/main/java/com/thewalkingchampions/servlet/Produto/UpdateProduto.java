@@ -1,8 +1,8 @@
 package com.thewalkingchampions.servlet.Produto;
 
-import com.thewalkingchampions.controller.CategoriaController;
-import com.thewalkingchampions.controller.FilialController;
-import com.thewalkingchampions.controller.ProdutoController;
+import com.thewalkingchampions.service.CategoriaController;
+import com.thewalkingchampions.service.FilialController;
+import com.thewalkingchampions.service.ProdutoController;
 import com.thewalkingchampions.model.Categoria;
 import com.thewalkingchampions.model.Filial;
 import com.thewalkingchampions.model.Produto;

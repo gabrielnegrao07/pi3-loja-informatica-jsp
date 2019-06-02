@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Funcionario;
 
-import com.thewalkingchampions.controller.FuncionarioController;
+import com.thewalkingchampions.service.FuncionarioController;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -88,7 +88,8 @@
                 <label>Valor:</label>
                 <input type="text" name="valor" value="${produto.valor}">
                 <label>Quantidade:</label>
-                <input type="text" name="quantidade" onblur="parent.location.href = 'SavePedido'">
+                <input type="text" name="quantidade">
+                <button>Incluir Quantidade</button>
                 <br>
             </c:forEach>
                 

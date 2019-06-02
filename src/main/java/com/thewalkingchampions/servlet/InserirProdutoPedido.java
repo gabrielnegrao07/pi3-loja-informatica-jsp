@@ -1,7 +1,7 @@
 package com.thewalkingchampions.servlet;
 
 import auxilio.AdicionaItens;
-import com.thewalkingchampions.controller.ProdutoController;
+import com.thewalkingchampions.service.ProdutoController;
 import com.thewalkingchampions.model.Cliente;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;

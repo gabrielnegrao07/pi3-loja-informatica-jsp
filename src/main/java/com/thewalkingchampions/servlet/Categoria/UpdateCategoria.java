@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Categoria;
 
-import com.thewalkingchampions.controller.CategoriaController;
+import com.thewalkingchampions.service.CategoriaController;
 import com.thewalkingchampions.model.Categoria;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

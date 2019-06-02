@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Produto;
 
-import com.thewalkingchampions.controller.ProdutoController;
+import com.thewalkingchampions.service.ProdutoController;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
