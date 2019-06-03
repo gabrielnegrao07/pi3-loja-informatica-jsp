@@ -1,4 +1,4 @@
-package com.thewalkingchampions.servlet;
+package com.thewalkingchampions.servlet.pedido;
 
 import com.thewalkingchampions.service.ClienteController;
 import com.thewalkingchampions.model.Cliente;

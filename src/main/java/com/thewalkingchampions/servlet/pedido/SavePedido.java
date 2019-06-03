@@ -1,4 +1,4 @@
-package com.thewalkingchampions.servlet;
+package com.thewalkingchampions.servlet.pedido;
 
 import auxilio.AdicionaItens;
 import com.thewalkingchampions.service.ProdutoController;
