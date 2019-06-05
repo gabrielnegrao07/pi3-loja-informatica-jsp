@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Estoque;
 
-import com.thewalkingchampions.service.EstoqueController;
+import com.thewalkingchampions.controller.EstoqueController;
 import com.thewalkingchampions.model.Estoque;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

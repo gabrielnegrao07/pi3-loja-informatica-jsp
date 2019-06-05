@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Funcionario;
 
-import com.thewalkingchampions.service.FuncionarioController;
+import com.thewalkingchampions.controller.FuncionarioController;
 import com.thewalkingchampions.model.Funcionario;
 import java.io.IOException;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Login;
 
-import com.thewalkingchampions.service.LoginService;
+import com.thewalkingchampions.controller.LoginService;
 import com.thewalkingchampions.model.User;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;

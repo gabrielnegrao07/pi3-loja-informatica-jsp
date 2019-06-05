@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.Filial;
 
-import com.thewalkingchampions.service.FilialController;
+import com.thewalkingchampions.controller.FilialController;
 import com.thewalkingchampions.model.Filial;
 import java.io.IOException;
 import java.util.List;
