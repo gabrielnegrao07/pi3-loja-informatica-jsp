@@ -1,5 +1,5 @@
 
-package com.thewalkingchampions.service;
+package com.thewalkingchampions.controller;
 
 import com.thewalkingchampions.model.User;
 import com.thewalkingchampions.model.Papel;

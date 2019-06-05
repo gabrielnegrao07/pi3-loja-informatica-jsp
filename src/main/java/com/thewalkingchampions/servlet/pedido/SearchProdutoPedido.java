@@ -1,6 +1,6 @@
 package com.thewalkingchampions.servlet.pedido;
 
-import com.thewalkingchampions.service.ProdutoController;
+import com.thewalkingchampions.controller.ProdutoController;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;
 import java.util.List;

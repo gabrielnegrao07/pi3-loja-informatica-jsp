@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.thewalkingchampions.service;
+package com.thewalkingchampions.controller;
 
 import com.thewalkingchampions.dao.PedidoItensDAO;
 import com.thewalkingchampions.model.PedidoItens;

@@ -105,6 +105,7 @@
                             <th>Valor</th>
                             <th>Categoria</th>
                             <th>Filial</th>
+                            <th>Quantidade</th>
                             <th colspan="1">Ação</th>
                         </tr>
 
@@ -116,7 +117,8 @@
                                 <td><c:out value="${produto.valor}"/></td>
                                 <td><c:out value="${produto.categoria}"/></td>
                                 <td><c:out value="${produto.filial}"/></td>
-                                <td><a href="InserirProdutoPedido?action=upd&id=${produto.id}"><button type="submit" value="${produto.id}" name="id" style="width: 70px; height: 30px">Inserir</button></a></td>
+                                <td><input type="text" name="quantidade"/><td
+                                <td><a href="InserirProdutoPedido?action=upd&id=${produto.id}&quantidade=${produto.quantidade}"><button type="submit" value="${produto.id}" name="id" style="width: 70px; height: 30px">Inserir</button></a></td>
                             </tr>               
                         </c:forEach>
                         </form>

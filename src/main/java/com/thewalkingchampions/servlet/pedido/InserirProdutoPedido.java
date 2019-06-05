@@ -1,7 +1,7 @@
 package com.thewalkingchampions.servlet.pedido;
 
 import auxilio.AdicionaItens;
-import com.thewalkingchampions.service.ProdutoController;
+import com.thewalkingchampions.controller.ProdutoController;
 import com.thewalkingchampions.model.Cliente;
 import com.thewalkingchampions.model.Produto;
 import java.io.IOException;
@@ -26,6 +26,7 @@ public class InserirProdutoPedido extends HttpServlet {
         switch (acao) {
             case "upd": {
                 String id = request.getParameter("id");
+                String quantidade = request.getParameter("quantidade");
                 Produto produto = ProdutoController.searchID(Integer.parseInt(id));
                 HttpSession session = request.getSession(true);
 
