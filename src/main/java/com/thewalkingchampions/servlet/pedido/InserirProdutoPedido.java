@@ -26,7 +26,11 @@ public class InserirProdutoPedido extends HttpServlet {
         switch (acao) {
             case "upd": {
                 String id = request.getParameter("id");
+<<<<<<< HEAD
                 String estoque = request.getParameter("estoque");
+=======
+                String quantidade = request.getParameter("quantidade");
+>>>>>>> c26f2a476d04662d8b048f7a1ba89ec5d4e866a4
                 Produto produto = ProdutoController.searchID(Integer.parseInt(id));
                 HttpSession session = request.getSession(true);
 

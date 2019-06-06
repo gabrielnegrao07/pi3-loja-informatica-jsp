@@ -21,7 +21,7 @@
             <header>
                 <h1>PRODUTOS</h1>
                 <div class="sidenav">
-                   <button class="dropdown-btn" href="#">DASHBOARD</button>
+                    <button class="dropdown-btn" href="#">DASHBOARD</button>
 
                     <button class="dropdown-btn">PEDIDO 
                         <i class="fa fa-caret-down"></i>
@@ -105,7 +105,6 @@
                             <th>Valor</th>
                             <th>Categoria</th>
                             <th>Filial</th>
-                            <th>Estoque</th>
                             <th colspan="1">Ação</th>
                         </tr>
 
@@ -117,8 +116,8 @@
                                 <td><c:out value="${produto.valor}"/></td>
                                 <td><c:out value="${produto.categoria}"/></td>
                                 <td><c:out value="${produto.filial}"/></td>
-                                <td><input type="text" name="estoque"/></td>
-                                <td><a href="InserirProdutoPedido?action=upd&id=${produto.id}&estoque=${produto.estoque}}"><button type="submit" value="${produto.id}" name="id" style="width: 70px; height: 30px">Inserir</button></a></td>
+
+                                <td><a href="InserirProdutoPedido?action=upd&id=${produto.id}"><button type="submit" value="${produto.id}" name="id" style="width: 70px; height: 30px">Inserir</button></a></td>
                             </tr>               
                         </c:forEach>
                         </form>
