@@ -26,7 +26,7 @@ public class EstoqueDAO {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO ESTOQUE(ID_PRODUTO, QUANTIDADE) VALUES (?,?);");
+            stmt = connection.prepareStatement("INSERT INTO estoque(ID_PRODUTO, QUANTIDADE) VALUES (?,?);");
 
             stmt.setInt(1, estoque.getIdProduto());
             stmt.setInt(2, estoque.getQuantidade());
@@ -48,7 +48,7 @@ public class EstoqueDAO {
         List<Estoque> estoques = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT E.ID_PRODUTO, P.NOME, E.QUANTIDADE FROM ESTOQUE AS E JOIN PRODUTO AS P ON E.ID_PRODUTO = P.ID WHERE P.HABILITADO = 1");
+            stmt = connection.prepareStatement("SELECT e.ID_PRODUTO, p.NOME, e.QUANTIDADE FROM estoque AS E JOIN produto AS p ON e.ID_PRODUTO = p.ID WHERE p.HABILITADO = 1");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -77,7 +77,7 @@ public class EstoqueDAO {
         Estoque estoque = new Estoque();
 
         try {
-            stmt = connection.prepareStatement("SELECT E.*, P.NOME FROM ESTOQUE AS E JOIN PRODUTO AS P ON E.ID_PRODUTO = P.ID WHERE ID_PRODUTO LIKE ?;");
+            stmt = connection.prepareStatement("SELECT e.*, p.NOME FROM estoque AS E JOIN produto AS p ON e.ID_PRODUTO = p.ID WHERE ID_PRODUTO LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -103,7 +103,7 @@ public class EstoqueDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE ESTOQUE SET QUANTIDADE = ? WHERE ID_PRODUTO = ?");
+            stmt = connection.prepareStatement("UPDATE estoque SET quantidade = ? WHERE ID_PRODUTO = ?");
 
             stmt.setInt(1, estoque.getQuantidade());
             stmt.setInt(2, estoque.getIdProduto());

@@ -19,7 +19,7 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR PEDIDO</a>
+                        <a href="savePedido.jsp">INCLUIR PEDIDO</a>
                         <a href="#">CONSULTAR PEDIDO</a>
                     </div>
 
@@ -61,8 +61,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR FUNCIONARIOS</a>
-                        <a href="#">CONSULTAR PRODUTO</a>
+                        <a href="saveFuncionario.jsp">INCLUIR FUNCIONARIO</a>
+                        <a OnClick="parent.location.href = 'SearchFuncionario'">CONSULTAR FUNCIONARIOS</a>
                     </div>
 
                     <button class="dropdown-btn">FILIAIS

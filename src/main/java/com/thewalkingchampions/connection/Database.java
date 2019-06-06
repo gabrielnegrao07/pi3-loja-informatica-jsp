@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 
 public class Database {
 
-    private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3307/mydb?useTimezone=true&serverTimezone=UTC";
-    private static final String USERNAME = "root";
-    private static final String PASSWORD = "";
+    private static final String DRIVER = "com.mariadb.cj.jdbc.Driver";
+    private static final String URL = "jdbc:mariadb://35.247.250.143:3306/mydb?useTimezone=true&serverTimezone=UTC";
+    private static final String USERNAME = "jonas";
+    private static final String PASSWORD = "Mudar.123";
 
     public static Connection getConnection() {
         try {

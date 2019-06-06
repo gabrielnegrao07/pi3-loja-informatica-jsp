@@ -23,7 +23,7 @@ public class FilialDAO {
         PreparedStatement stmt = null;
         boolean cond;
         try {
-            stmt = connection.prepareStatement("INSERT INTO FILIAL (NOME, CNPJ, IE, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP, EMAIL, TELEFONE, HABILITADO) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO filial (NOME, CNPJ, IE, ENDERECO, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, ESTADO, CEP, EMAIL, TELEFONE, HABILITADO) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, filial.getNome());
             stmt.setString(2, filial.getCnpj());
             stmt.setString(3, filial.getIe());
@@ -59,7 +59,7 @@ public class FilialDAO {
         List<Filial> filiais = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FILIAL");
+            stmt = connection.prepareStatement("SELECT * FROM filial");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -98,7 +98,7 @@ public class FilialDAO {
         List<Filial> filiais = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FILIAL WHERE nome LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM filial WHERE nome LIKE ?;");
             stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
 
@@ -138,7 +138,7 @@ public class FilialDAO {
         Filial filial = new Filial();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FILIAL WHERE ID LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM filial WHERE ID LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -176,7 +176,7 @@ public class FilialDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE FILIAL SET NOME = ?, CNPJ = ?, IE = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, BAIRRO = ?, CIDADE = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, HABILITADO = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE filial SET NOME = ?, CNPJ = ?, IE = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, BAIRRO = ?, CIDADE = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, filial.getNome());
             stmt.setString(2, filial.getCnpj());
@@ -213,7 +213,7 @@ public class FilialDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("DELETE FROM FILIAL WHERE ID = ?");
+            stmt = connection.prepareStatement("DELETE FROM filial WHERE ID = ?");
 
             stmt.setInt(1, id);
 

@@ -27,7 +27,7 @@ public class CategoriaDAO {
         PreparedStatement stmt = null;
         boolean cond;
         try {
-            stmt = connection.prepareStatement("INSERT INTO CATEGORIA (nome) VALUES (?);");
+            stmt = connection.prepareStatement("INSERT INTO categoria (nome) VALUES (?);");
             stmt.setString(1, categoria.getNome());
 
             stmt.executeUpdate();
@@ -51,7 +51,7 @@ public class CategoriaDAO {
         List<Categoria> categorias = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CATEGORIA");
+            stmt = connection.prepareStatement("SELECT * FROM categoria");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -78,7 +78,7 @@ public class CategoriaDAO {
         List<Categoria> categorias = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CATEGORIAS WHERE nome LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM categoria WHERE nome LIKE ?;");
             stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
 
@@ -105,7 +105,7 @@ public class CategoriaDAO {
         Categoria categoria = new Categoria();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CATEGORIA WHERE ID LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM categoria WHERE ID LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -129,7 +129,7 @@ public class CategoriaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = connection.prepareStatement("UPDATE CATEGORIA SET nome = ? WHERE id = ?");
+            stmt = connection.prepareStatement("UPDATE categoria SET nome = ? WHERE id = ?");
 
             stmt.setString(1, categoria.getNome());
             stmt.setInt(2, categoria.getId());
@@ -147,7 +147,7 @@ public class CategoriaDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = connection.prepareStatement("DELETE FROM CATEGORIA WHERE id = ?");
+            stmt = connection.prepareStatement("DELETE FROM categoria WHERE id = ?");
 
             stmt.setInt(1, id);
 

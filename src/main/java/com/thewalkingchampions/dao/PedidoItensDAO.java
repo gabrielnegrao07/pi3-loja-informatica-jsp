@@ -18,7 +18,7 @@ public class PedidoItensDAO {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO ITENSPEDIDOS(ID_PEDIDO, ID_PRODUTO, VALOR, QUANTIDADE) VALUES (?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO itenspedidos(ID_PEDIDO, ID_PRODUTO, VALOR, QUANTIDADE) VALUES (?,?,?,?);");
 
             stmt.setInt(1, itens.getIdPedido());
             stmt.setInt(2, itens.getIdProduto());

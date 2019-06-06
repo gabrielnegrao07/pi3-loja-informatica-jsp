@@ -22,13 +22,13 @@
             <header>
                 <h1>FUNCIONARIOS</h1>
                 <div class="sidenav">
-                    <button class="dropdown-btn" href="#">DASHBOARD</button>
+                  <button class="dropdown-btn" href="#">DASHBOARD</button>
 
                     <button class="dropdown-btn">PEDIDO 
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR PEDIDO</a>
+                        <a href="savePedido.jsp">INCLUIR PEDIDO</a>
                         <a href="#">CONSULTAR PEDIDO</a>
                     </div>
 
@@ -36,25 +36,25 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR CLIENTE</a>
-                        <a href="#">CONSULTAR CLIENTE</a>
+                        <a href="saveCliente.jsp">INCLUIR CLIENTE</a>
+                        <a OnClick="parent.location.href = 'SearchCliente'">CONSULTAR CLIENTE</a>
                     </div>
 
                     <button class="dropdown-btn">PRODUTO
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR PRODUTO</a>
-                        <a href="#">CONSULTAR PRODUTO</a>
-                        <a href="#">INCLUIR CATEGORIA</a>
-                        <a href="#">CONSULTAR CATEGORIA</a>
+                        <a a href="SaveProduto?action=salvar">INCLUIR PRODUTO</a>
+                        <a OnClick="parent.location.href = 'SearchProduto'">CONSULTAR PRODUTO</a>
+                        <a href="saveCategoria.jsp">INCLUIR CATEGORIA</a>
+                        <a OnClick="parent.location.href = 'SearchCategoria'">CONSULTAR CATEGORIA</a>
                     </div>
 
                     <button class="dropdown-btn">ESTOQUE
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">CONSULTAR ESTOQUE</a>
+                        <a OnClick="parent.location.href = 'SearchEstoque'">CONSULTAR ESTOQUE</a>
                     </div>
 
                     <button class="dropdown-btn">RELATORIOS
@@ -70,16 +70,16 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR FUNCIONARIOS</a>
-                        <a href="#">CONSULTAR PRODUTO</a>
+                        <a href="saveFuncionario.jsp">INCLUIR FUNCIONARIOS</a>
+                        <a OnClick="parent.location.href = 'SearchFuncionario'">CONSULTAR PRODUTO</a>
                     </div>
 
                     <button class="dropdown-btn">FILIAIS
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-container">
-                        <a href="#">INCLUIR FILIAIS</a>
-                        <a href="#">CONSULTAR FILIAIS</a>
+                        <a href="saveFilial.jsp">INCLUIR FILIAL</a>
+                        <a OnClick="parent.location.href = 'SearchFilial'">CONSULTAR FILIAIS</a>
                     </div>
 
                     <button class="dropdown-btn">SUPORTE

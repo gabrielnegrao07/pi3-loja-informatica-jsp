@@ -23,7 +23,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
         boolean cond;
         try {
-            stmt = connection.prepareStatement("INSERT INTO PRODUTO(NOME, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO produto(NOME, VALOR, DESCRICAO, CATEGORIA, FILIAL, HABILITADO) VALUES (?,?,?,?,?,?);");
 
             stmt.setString(1, produto.getNome());
             stmt.setFloat(2, produto.getValor());
@@ -52,7 +52,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT P.*, C.NOME, F.NOME FROM PRODUTO AS P INNER JOIN CATEGORIA AS C INNER JOIN FILIAL F ON P.CATEGORIA = C.ID AND P.FILIAL = F.ID;");
+            stmt = connection.prepareStatement("SELECT p.*, c.NOME, f.NOME FROM produto AS p INNER JOIN categoria AS C INNER JOIN filial f ON p.categoria = c.ID AND p.filial = f.ID;");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -85,7 +85,7 @@ public class ProdutoDAO {
         List<Produto> produtos = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM PRODUTO WHERE nome LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM produto WHERE nome LIKE ?;");
             stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
 
@@ -119,7 +119,7 @@ public class ProdutoDAO {
         Produto produto = new Produto();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM PRODUTO WHERE ID LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM produto WHERE ID LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -151,7 +151,7 @@ public class ProdutoDAO {
         Produto produto = new Produto();
 
         try {
-            stmt = connection.prepareStatement("SELECT ID FROM PRODUTO WHERE NOME LIKE ? AND FILIAL LIKE ?;");
+            stmt = connection.prepareStatement("SELECT ID FROM produto WHERE NOME LIKE ? AND FILIAL LIKE ?;");
             stmt.setString(1, nome);
             stmt.setInt(2, filial);
             rs = stmt.executeQuery();
@@ -175,7 +175,7 @@ public class ProdutoDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE PRODUTO SET NOME = ?, VALOR = ?, DESCRICAO = ?, CATEGORIA = ?, FILIAL = ?, HABILITADO = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE produto SET NOME = ?, VALOR = ?, DESCRICAO = ?, CATEGORIA = ?, FILIAL = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, produto.getNome());
             stmt.setFloat(2, produto.getValor());
@@ -203,7 +203,7 @@ public class ProdutoDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = connection.prepareStatement("DELETE FROM PRODUTO WHERE id = ?");
+            stmt = connection.prepareStatement("DELETE FROM produto WHERE id = ?");
 
             stmt.setInt(1, id);
 

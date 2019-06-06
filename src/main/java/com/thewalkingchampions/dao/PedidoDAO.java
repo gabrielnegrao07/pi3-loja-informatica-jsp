@@ -24,7 +24,7 @@ public class PedidoDAO {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO PEDIDO(ID_CLIENTE, VALORTOTAL, DESCONTO, VALOR) VALUES (?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO pedido(ID_CLIENTE, VALORTOTAL, DESCONTO, VALOR) VALUES (?,?,?,?);");
 
             stmt.setInt(1, pedido.getIdCliente());
             stmt.setFloat(2, pedido.getValorTotal());
@@ -48,7 +48,7 @@ public class PedidoDAO {
         Pedido pedido = new Pedido();
 
         try {
-            stmt = connection.prepareStatement("SELECT ID FROM PEDIDO WHERE ID_CLIENTE LIKE ? ORDER BY ID DESC;");
+            stmt = connection.prepareStatement("SELECT ID FROM pedido WHERE ID_CLIENTE LIKE ? ORDER BY ID DESC;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 

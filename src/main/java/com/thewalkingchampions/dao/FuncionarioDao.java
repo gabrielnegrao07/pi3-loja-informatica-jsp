@@ -27,7 +27,7 @@ public class FuncionarioDao {
         Connection connection = Database.getConnection();
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("INSERT INTO FUNCIONARIO (NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR, FILIAL, CARGO, HABILITADO) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO funcionario (NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR, FILIAL, CARGO, HABILITADO) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCpf());
             stmt.setString(3, funcionario.getRg());
@@ -62,7 +62,7 @@ public class FuncionarioDao {
         List<Funcionario> funcionarios = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FUNCIONARIO");
+            stmt = connection.prepareStatement("SELECT * FROM funcionario");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -105,7 +105,7 @@ public class FuncionarioDao {
         List<Funcionario> funcionarios = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FUNCIONARIO WHERE nome LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM funcionario WHERE nome LIKE ?;");
             stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
 
@@ -148,7 +148,7 @@ public class FuncionarioDao {
         Funcionario funcionario = new Funcionario();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM FUNCIONARIO WHERE ID LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM funcionario WHERE ID LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -188,7 +188,7 @@ public class FuncionarioDao {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE FUNCIONARIO SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? , FILIAL = ?, CARGO = ?, HABILITADO = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE funcionario SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? , FILIAL = ?, CARGO = ?, HABILITADO = ? WHERE ID = ?");
 
             stmt.setString(1, funcionario.getNome());
             stmt.setString(2, funcionario.getCpf());
@@ -227,7 +227,7 @@ public class FuncionarioDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = connection.prepareStatement("DELETE FROM FUNCIONARIO WHERE id = ?");
+            stmt = connection.prepareStatement("DELETE FROM funcionario WHERE id = ?");
 
             stmt.setInt(1, id);
 

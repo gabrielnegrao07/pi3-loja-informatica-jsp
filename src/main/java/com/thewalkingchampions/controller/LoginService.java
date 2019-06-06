@@ -21,8 +21,8 @@ public class LoginService {
         USUARIOS_CADASTRADOS.put("berlin", new User("berlin",
                 "Andres de Fonollosa", "abcd1234",
                 Arrays.asList(new Papel("PEAO"), new Papel("FODON"))));
-        USUARIOS_CADASTRADOS.put("professor", new User("professor",
-                "Sergio Marquina", "abcd1234",
+        USUARIOS_CADASTRADOS.put("root", new User("root",
+                "Sergio Marquina", "1234",
                 Arrays.asList(new Papel("PEAO"), new Papel("GOD"))));
     }
 

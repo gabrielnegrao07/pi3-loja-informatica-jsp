@@ -18,7 +18,7 @@ public class ClienteDAO {
         PreparedStatement stmt = null;
         boolean cond;
         try {
-            stmt = connection.prepareStatement("INSERT INTO CLIENTE(NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
+            stmt = connection.prepareStatement("INSERT INTO cliente(NOME, CPF, RG, ENDERECO, NUMERO, COMPLEMENTO, CIDADE, BAIRRO, ESTADO, CEP, EMAIL, TELEFONE, CELULAR) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);");
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
             stmt.setString(3, cliente.getRg());
@@ -53,7 +53,7 @@ public class ClienteDAO {
         List<Cliente> clientes = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CLIENTE");
+            stmt = connection.prepareStatement("SELECT * FROM cliente");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -93,7 +93,7 @@ public class ClienteDAO {
         List<Cliente> clientes = new ArrayList<>();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CLIENTE WHERE nome LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ?;");
             stmt.setString(1, "%" + nome + "%");
             rs = stmt.executeQuery();
 
@@ -133,7 +133,7 @@ public class ClienteDAO {
         Cliente cliente = new Cliente();
 
         try {
-            stmt = connection.prepareStatement("SELECT * FROM CLIENTE WHERE ID LIKE ?;");
+            stmt = connection.prepareStatement("SELECT * FROM cliente WHERE ID LIKE ?;");
             stmt.setInt(1, id);
             rs = stmt.executeQuery();
 
@@ -171,7 +171,7 @@ public class ClienteDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("UPDATE CLIENTE SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? WHERE ID = ?");
+            stmt = connection.prepareStatement("UPDATE cliente SET NOME = ?, CPF = ?, RG = ?, ENDERECO = ?, NUMERO = ?, COMPLEMENTO = ?, CIDADE = ?, BAIRRO = ?, ESTADO = ?, CEP = ?, EMAIL = ?, TELEFONE = ?, CELULAR = ? WHERE ID = ?");
 
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getCpf());
@@ -207,7 +207,7 @@ public class ClienteDAO {
         boolean cond;
 
         try {
-            stmt = connection.prepareStatement("DELETE FROM CLIENTE WHERE ID = ?");
+            stmt = connection.prepareStatement("DELETE FROM cliente WHERE ID = ?");
 
             stmt.setInt(1, id);
 

@@ -70,7 +70,7 @@ public class SavePedido extends HttpServlet {
         }
 
         RequestDispatcher dispatcher
-                = request.getRequestDispatcher("index.jsp");
+                = request.getRequestDispatcher("savePedido.jsp");
         dispatcher.forward(request, response);
     }
 
