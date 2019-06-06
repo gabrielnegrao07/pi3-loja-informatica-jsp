@@ -1,7 +1,4 @@
-<<<<<<< HEAD:src/main/java/com/thewalkingchampions/controller/LoginService.java
-=======
 
->>>>>>> c26f2a476d04662d8b048f7a1ba89ec5d4e866a4:src/main/java/com/thewalkingchampions/controller/LoginService.java
 package com.thewalkingchampions.controller;
 
 import com.thewalkingchampions.model.User;
